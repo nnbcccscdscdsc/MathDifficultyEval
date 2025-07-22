@@ -33,14 +33,15 @@ class MultiModelComparator:
         setup_logging()
         self.logger = logging.getLogger(__name__)
         
-        # 支持的模型列表
-        self.supported_models = ["llama-7b", "llama-13b", "llama-70b"]
+        # 支持的模型列表（快速测试版本）
+        self.supported_models = [
+            "mistral-7b", "longalpaca-7b"
+        ]
         
         # 模型参数映射
         self.model_params = {
-            'llama-7b': 7,
-            'llama-13b': 13,
-            'llama-70b': 70
+            'mistral-7b': 7,
+            'longalpaca-7b': 7
         }
     
     def evaluate_models(self, models: List[str], dataset: str, 
@@ -248,9 +249,9 @@ class MultiModelComparator:
 
 def main():
     parser = argparse.ArgumentParser(description="多模型比较脚本")
-    parser.add_argument("--models", nargs="+", default=["llama-7b", "llama-13b"],
-                       choices=["llama-7b", "llama-13b", "llama-70b"],
-                       help="要比较的模型列表")
+    parser.add_argument("--models", nargs="+", default=["mistral-7b", "longalpaca-7b"],
+                       choices=["mistral-7b", "longalpaca-7b"],
+                       help="要比较的模型列表（快速测试版本）")
     parser.add_argument("--dataset", type=str, default="sample",
                        help="数据集名称")
     parser.add_argument("--quantization", type=str, default="4bit",

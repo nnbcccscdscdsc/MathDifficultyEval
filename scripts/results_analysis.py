@@ -18,6 +18,10 @@ from plotly.subplots import make_subplots
 import numpy as np
 from datetime import datetime
 import sys
+import warnings
+
+# 禁用matplotlib字体警告
+warnings.filterwarnings('ignore', category=UserWarning, module='matplotlib')
 
 # 添加项目根目录到路径
 sys.path.append(str(Path(__file__).parent.parent))
@@ -38,7 +42,7 @@ class ResultsAnalyzer:
         self.logger = logging.getLogger(__name__)
         
         # 设置matplotlib中文字体
-        plt.rcParams['font.sans-serif'] = ['SimHei', 'DejaVu Sans']
+        plt.rcParams['font.sans-serif'] = ['SimHei', 'DejaVu Sans', 'Arial Unicode MS', 'Noto Sans CJK SC']
         plt.rcParams['axes.unicode_minus'] = False
         
         # 设置seaborn样式
@@ -81,20 +85,20 @@ class ResultsAnalyzer:
         
         # 准确率
         sns.barplot(data=difficulty_metrics, x='difficulty', y='accuracy', ax=axes[0,0])
-        axes[0,0].set_title('准确率 (Accuracy)')
-        axes[0,0].set_ylabel('准确率')
+        axes[0,0].set_title('Accuracy')
+        axes[0,0].set_ylabel('Accuracy')
         axes[0,0].set_ylim(0, 1)
         
         # 精确匹配
         sns.barplot(data=difficulty_metrics, x='difficulty', y='exact_match', ax=axes[0,1])
-        axes[0,1].set_title('精确匹配 (Exact Match)')
-        axes[0,1].set_ylabel('精确匹配率')
+        axes[0,1].set_title('Exact Match')
+        axes[0,1].set_ylabel('Exact Match Rate')
         axes[0,1].set_ylim(0, 1)
         
         # OpenAI评分
         sns.barplot(data=difficulty_metrics, x='difficulty', y='openai_score', ax=axes[0,2])
-        axes[0,2].set_title('OpenAI评分')
-        axes[0,2].set_ylabel('评分 (0-100)')
+        axes[0,2].set_title('OpenAI Score')
+        axes[0,2].set_ylabel('Score (0-100)')
         axes[0,2].set_ylim(0, 100)
         
         # ROUGE分数

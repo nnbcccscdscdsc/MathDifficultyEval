@@ -121,7 +121,7 @@ class MathDataProcessor:
         
         # 创建DataFrame并保存
         df = pd.DataFrame(sample_data)
-        df.to_csv(self.processed_dir / "sample_dataset.csv", index=False)
+        df.to_csv(self.processed_dir / "sample.csv", index=False)
         
         self.logger.info(f"小样本数据集创建完成，共 {len(df)} 个样本")
         

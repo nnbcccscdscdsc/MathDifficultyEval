@@ -92,13 +92,23 @@ class ModelEvaluator:
             )
             
             # 创建pipeline
-            self.pipeline = pipeline(
-                "text-generation",
-                model=self.model,
-                tokenizer=self.tokenizer,
-                device=self.device,
-                **{k: v for k, v in model_config.items() if k != 'model_name'}
-            )
+            if quantization != "none":
+                # 使用量化时，不指定device，让accelerate自动处理
+                self.pipeline = pipeline(
+                    "text-generation",
+                    model=self.model,
+                    tokenizer=self.tokenizer,
+                    **{k: v for k, v in model_config.items() if k != 'model_name'}
+                )
+            else:
+                # 不使用量化时，可以指定device
+                self.pipeline = pipeline(
+                    "text-generation",
+                    model=self.model,
+                    tokenizer=self.tokenizer,
+                    device=self.device,
+                    **{k: v for k, v in model_config.items() if k != 'model_name'}
+                )
             
             self.logger.info(f"模型 {model_name} 加载成功")
             
@@ -124,19 +134,29 @@ class ModelEvaluator:
             # 构建提示
             prompt = prompt_template.format(problem=problem)
             
-            # 生成回答
+            # 生成回答 - 使用更安全的参数
             response = self.pipeline(
                 prompt,
-                max_new_tokens=512,
+                max_new_tokens=128,  # 进一步减少生成长度
                 do_sample=True,
-                temperature=0.1,
-                top_p=0.9,
-                pad_token_id=self.tokenizer.eos_token_id
+                temperature=0.8,     # 提高温度，避免数值问题
+                top_p=0.9,           # 降低top_p
+                top_k=40,            # 降低top_k
+                repetition_penalty=1.0,  # 移除重复惩罚
+                pad_token_id=self.tokenizer.eos_token_id,
+                eos_token_id=self.tokenizer.eos_token_id,
+                return_full_text=False  # 只返回新生成的文本
             )
             
             # 提取生成的文本
-            generated_text = response[0]['generated_text']
-            answer = generated_text[len(prompt):].strip()
+            if isinstance(response, list) and len(response) > 0:
+                generated_text = response[0].get('generated_text', '')
+                if generated_text:
+                    answer = generated_text.strip()
+                else:
+                    answer = "生成失败：无输出"
+            else:
+                answer = "生成失败：响应格式错误"
             
             return answer
             
@@ -289,9 +309,9 @@ class ModelEvaluator:
 
 def main():
     parser = argparse.ArgumentParser(description="模型评估脚本")
-    parser.add_argument("--model", type=str, default="llama-7b",
-                       choices=["llama-7b", "llama-13b", "llama-70b"],
-                       help="要评估的模型")
+    parser.add_argument("--model", type=str, default="mistral-7b",
+                       choices=["mistral-7b", "longalpaca-7b"],
+                       help="要评估的模型（快速测试版本）")
     parser.add_argument("--quantization", type=str, default="4bit",
                        choices=["none", "4bit", "8bit"],
                        help="量化方式")

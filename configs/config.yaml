@@ -1,28 +1,70 @@
 # 模型配置
 models:
-  llama-7b:
-    model_name: "meta-llama/Llama-2-7b-hf"
+  # 快速测试模型（7B参数，下载快）
+  mistral-7b:
+    model_name: "microsoft/DialoGPT-medium"  # 使用更稳定的测试模型
+    max_length: 1024
+    temperature: 0.1
+    top_p: 0.9
+    do_sample: true
+    num_beams: 1
+    
+  longalpaca-7b:
+    model_name: "Yukang/LongAlpaca-7B-16k"
     max_length: 2048
     temperature: 0.1
     top_p: 0.9
     do_sample: true
     num_beams: 1
     
-  llama-13b:
-    model_name: "meta-llama/Llama-2-13b-hf"
-    max_length: 2048
-    temperature: 0.1
-    top_p: 0.9
-    do_sample: true
-    num_beams: 1
+  # 注释掉大模型（下载时间长，稍后使用）
+  # llama-7b:
+  #   model_name: "mistral-community/Mistral-7B-v0.2"
+  #   max_length: 4096
+  #   temperature: 0.1
+  #   top_p: 0.9
+  #   do_sample: true
+  #   num_beams: 1
     
-  llama-70b:
-    model_name: "meta-llama/Llama-2-70b-hf"
-    max_length: 2048
-    temperature: 0.1
-    top_p: 0.9
-    do_sample: true
-    num_beams: 1
+  # llama-13b:
+  #   model_name: "Yukang/LongAlpaca-13B-16k"
+  #   max_length: 8192
+  #   temperature: 0.1
+  #   top_p: 0.9
+  #   do_sample: true
+  #   num_beams: 1
+    
+  # llama-70b:
+  #   model_name: "Yukang/LongAlpaca-70B-16k"
+  #   max_length: 8192
+  #   temperature: 0.1
+  #   top_p: 0.9
+  #   do_sample: true
+  #   num_beams: 1
+    
+  # longalpaca-13b:
+  #   model_name: "Yukang/LongAlpaca-13B-16k"
+  #   max_length: 8192
+  #   temperature: 0.1
+  #   top_p: 0.9
+  #   do_sample: true
+  #   num_beams: 1
+    
+  # longalpaca-70b:
+  #   model_name: "Yukang/LongAlpaca-70B-16k"
+  #   max_length: 8192
+  #   temperature: 0.1
+  #   top_p: 0.9
+  #   do_sample: true
+  #   num_beams: 1
+    
+  # oasst-30b:
+  #   model_name: "Yhyu13/oasst-rlhf-2-llama-30b-7k-steps-hf"
+  #   max_length: 4096
+  #   temperature: 0.1
+  #   top_p: 0.9
+  #   do_sample: true
+  #   num_beams: 1
 
 # 量化配置
 quantization:
@@ -41,23 +83,33 @@ quantization:
 
 # 数据集配置
 datasets:
+  # 高中数学数据集（推荐用于大模型测试）
   math:
     name: "hendrycks/math"
     split: "test"
-    max_samples: 1000
+    max_samples: 500  # 减少样本数，加快测试
     prompt_template: "Solve the following math problem step by step:\n\nProblem: {problem}\n\nSolution:"
     
+  # 小学数学数据集（适合测试基础推理能力）
   gsm8k:
     name: "gsm8k"
     split: "test"
-    max_samples: 1000
+    max_samples: 500
     prompt_template: "Let's solve this step by step:\n\nQuestion: {question}\n\nAnswer:"
     
+  # 数学选择题数据集
   mathqa:
     name: "math_qa"
     split: "test"
-    max_samples: 1000
+    max_samples: 500
     prompt_template: "Solve this math problem:\n\nProblem: {problem}\nOptions: {options}\n\nAnswer:"
+    
+  # 算术问题变体数据集
+  svamp:
+    name: "svamp"
+    split: "test"
+    max_samples: 200
+    prompt_template: "Solve this arithmetic problem:\n\nProblem: {question}\n\nAnswer:"
 
 # 难度等级映射
 difficulty_mapping:
@@ -74,7 +126,7 @@ evaluation:
 
 # OpenAI评分配置
 openai_scoring:
-  enabled: true
+  enabled: false
   model: "gpt-3.5-turbo"
   temperature: 0.0
   max_tokens: 100

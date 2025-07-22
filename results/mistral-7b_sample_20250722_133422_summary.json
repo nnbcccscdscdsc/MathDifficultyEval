@@ -1,0 +1,22 @@
+{
+  "model_name": "mistral-7b",
+  "dataset_name": "sample",
+  "total_samples": 2,
+  "evaluation_time": "2025-07-22T13:34:22.696772",
+  "overall_metrics": {
+    "accuracy": 0.08333333333333333,
+    "exact_match": 0.0,
+    "rouge_score": 0.25,
+    "bleu_score": 0.25
+  },
+  "difficulty_metrics": {
+    "college": {
+      "sample_count": 2,
+      "avg_generation_time": 2.3355355262756348,
+      "avg_accuracy": 0.08333333333333333,
+      "avg_exact_match": 0.0,
+      "avg_rouge_score": 0.25,
+      "avg_bleu_score": 0.25
+    }
+  }
+}

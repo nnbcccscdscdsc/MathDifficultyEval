@@ -1,0 +1,2 @@
+model,accuracy,exact_match,rouge_score,bleu_score,openai_score,generation_time
+mistral-7b,0.08333333333333333,0.0,0.25,0.25,50.0,1.5209424495697021

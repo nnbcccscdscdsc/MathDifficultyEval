@@ -1,0 +1,16 @@
+id,problem,expected_answer,generated_answer,difficulty,generation_time,accuracy,exact_match,rouge_score,bleu_score,step_accuracy,openai_score,openai_score_text
+elem_0,What is 15 + 27?,Answer will be calculated,"生成失败: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+",elementary,4.561049222946167,0.08333333333333333,0.0,0.25,0.25,0.0,50.0,OpenAI评分未启用
+college_2,"Find the eigenvalues of matrix [[2, 1], [1, 2]]",Answer will be calculated,"生成失败: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+",college,0.0012197494506835938,0.08333333333333333,0.0,0.25,0.25,0.0,50.0,OpenAI评分未启用
+college_1,Calculate the integral of ∫(2x + 1)dx,Answer will be calculated,"生成失败: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+",college,0.0005583763122558594,0.08333333333333333,0.0,0.25,0.25,0.0,50.0,OpenAI评分未启用

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "college_2",
+    "problem": "Find the eigenvalues of matrix [[2, 1], [1, 2]]",
+    "expected_answer": "Answer will be calculated",
+    "generated_answer": "生成失败: CUDA error: device-side assert triggered\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\n",
+    "difficulty": "college",
+    "generation_time": 4.669905424118042,
+    "accuracy": 0.08333333333333333,
+    "exact_match": 0.0,
+    "rouge_score": 0.25,
+    "bleu_score": 0.25,
+    "step_accuracy": 0.0,
+    "openai_score": 50.0,
+    "openai_score_text": "OpenAI评分未启用"
+  },
+  {
+    "id": "college_1",
+    "problem": "Calculate the integral of ∫(2x + 1)dx",
+    "expected_answer": "Answer will be calculated",
+    "generated_answer": "生成失败: CUDA error: device-side assert triggered\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\n",
+    "difficulty": "college",
+    "generation_time": 0.001165628433227539,
+    "accuracy": 0.08333333333333333,
+    "exact_match": 0.0,
+    "rouge_score": 0.25,
+    "bleu_score": 0.25,
+    "step_accuracy": 0.0,
+    "openai_score": 50.0,
+    "openai_score_text": "OpenAI评分未启用"
+  }
+]
