@@ -1,0 +1,109 @@
+# 模型配置
+models:
+  llama-7b:
+    model_name: "meta-llama/Llama-2-7b-hf"
+    max_length: 2048
+    temperature: 0.1
+    top_p: 0.9
+    do_sample: true
+    num_beams: 1
+    
+  llama-13b:
+    model_name: "meta-llama/Llama-2-13b-hf"
+    max_length: 2048
+    temperature: 0.1
+    top_p: 0.9
+    do_sample: true
+    num_beams: 1
+    
+  llama-70b:
+    model_name: "meta-llama/Llama-2-70b-hf"
+    max_length: 2048
+    temperature: 0.1
+    top_p: 0.9
+    do_sample: true
+    num_beams: 1
+
+# 量化配置
+quantization:
+  4bit:
+    load_in_4bit: true
+    bnb_4bit_compute_dtype: "float16"
+    bnb_4bit_quant_type: "nf4"
+    bnb_4bit_use_double_quant: true
+    
+  8bit:
+    load_in_8bit: true
+    
+  none:
+    load_in_4bit: false
+    load_in_8bit: false
+
+# 数据集配置
+datasets:
+  math:
+    name: "hendrycks/math"
+    split: "test"
+    max_samples: 1000
+    prompt_template: "Solve the following math problem step by step:\n\nProblem: {problem}\n\nSolution:"
+    
+  gsm8k:
+    name: "gsm8k"
+    split: "test"
+    max_samples: 1000
+    prompt_template: "Let's solve this step by step:\n\nQuestion: {question}\n\nAnswer:"
+    
+  mathqa:
+    name: "math_qa"
+    split: "test"
+    max_samples: 1000
+    prompt_template: "Solve this math problem:\n\nProblem: {problem}\nOptions: {options}\n\nAnswer:"
+
+# 难度等级映射
+difficulty_mapping:
+  elementary: ["grade_1", "grade_2", "grade_3", "grade_4", "grade_5", "grade_6"]
+  middle: ["grade_7", "grade_8", "grade_9", "grade_10", "grade_11", "grade_12"]
+  college: ["college"]
+
+# 评估配置
+evaluation:
+  metrics: ["accuracy", "exact_match", "rouge", "bleu", "step_accuracy", "openai_score"]
+  max_workers: 4
+  batch_size: 8
+  timeout: 300  # 每个问题的超时时间（秒）
+
+# OpenAI评分配置
+openai_scoring:
+  enabled: true
+  model: "gpt-3.5-turbo"
+  temperature: 0.0
+  max_tokens: 100
+  prompt_template: |
+    你是一个专业的数学教育评估专家。请对以下数学问题的回答进行评分。
+    
+    问题: {problem}
+    标准答案: {reference_answer}
+    学生回答: {student_answer}
+    
+    请从以下几个方面进行评分（总分100分）：
+    1. 答案正确性（40分）：答案是否正确
+    2. 解题思路（30分）：解题思路是否清晰合理
+    3. 步骤完整性（20分）：解题步骤是否完整
+    4. 表达清晰度（10分）：表达是否清晰易懂
+    
+    请只返回一个0-100之间的数字分数，不要其他内容。
+  
+# 输出配置
+output:
+  results_dir: "results"
+  save_predictions: true
+  save_metrics: true
+  generate_plots: true
+  save_model_outputs: true
+  
+# 系统配置
+system:
+  device: "auto"  # auto, cuda, cpu
+  max_memory: "16GB"  # 最大内存使用
+  seed: 42
+  log_level: "INFO" 
