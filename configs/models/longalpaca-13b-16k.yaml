@@ -1,0 +1,63 @@
+# LongAlpaca 13B 16K 模型配置
+model:
+  name: "Yukang/LongAlpaca-13B-16k"
+  display_name: "LongAlpaca 13B 16K"
+  description: "13B参数的长上下文模型，数学推理能力强"
+  
+# GPU配置
+gpu:
+  num_gpus: 2                    # 使用2个GPU
+  max_memory_per_gpu: "12GB"     # 每个GPU最大内存
+  device_map: "auto"             # 自动设备映射
+  max_memory:                    # 多GPU内存分配
+    "0": "12GB"
+    "1": "12GB"
+  
+# 量化配置
+quantization:
+  default: "4bit"                # 默认使用4bit量化
+  options:
+    4bit:
+      load_in_4bit: true
+      bnb_4bit_compute_dtype: "float16"
+      bnb_4bit_quant_type: "nf4"
+      bnb_4bit_use_double_quant: true
+    8bit:
+      load_in_8bit: true
+    none:
+      load_in_4bit: false
+      load_in_8bit: false
+
+# 生成参数
+generation:
+  max_new_tokens: 512            # 支持更长输出
+  do_sample: true
+  temperature: 0.6
+  top_p: 0.9
+  top_k: 50
+  repetition_penalty: 1.1
+  pad_token_id: null  # 自动设置
+  eos_token_id: null  # 自动设置
+  return_full_text: false
+
+# 模型特定设置
+model_specific:
+  trust_remote_code: true
+  torch_dtype: "float16"
+  low_cpu_mem_usage: true
+  max_length: 16384              # 支持16K上下文
+  
+# 评估设置
+evaluation:
+  max_samples_per_run: 80        # 每次评估最大样本数（减少内存压力）
+  timeout_seconds: 7200          # 评估超时时间（2小时）
+  batch_size: 1                  # 批处理大小
+  
+# 提示模板
+prompt_template: |
+  You are an expert mathematician and problem solver. 
+  Please provide a comprehensive solution to the following mathematical problem:
+
+  Problem: {problem}
+
+  Let me solve this step by step: 

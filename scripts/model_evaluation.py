@@ -48,6 +48,7 @@ class ModelEvaluator:
         self.model = None
         self.tokenizer = None
         self.pipeline = None
+        self.model_name = None
         
         # 初始化OpenAI评分器
         self.openai_scorer = None
@@ -59,22 +60,46 @@ class ModelEvaluator:
                 self.logger.warning(f"OpenAI评分器初始化失败: {e}")
                 self.openai_scorer = None
     
-    def load_model(self, model_name: str, quantization: str = "4bit"):
+    def load_model(self, model_name: str, quantization: str = "4bit", num_gpus: int = None):
         """加载模型"""
-        self.logger.info(f"加载模型: {model_name}, 量化: {quantization}")
+        # 导入配置管理器
+        from scripts.model_config_manager import ModelConfigManager
         
-        model_config = self.config['models'][model_name]
-        quant_config = self.config['quantization'][quantization]
-        
-        # 配置量化参数
-        quantization_config = None
-        if quantization != "none":
-            quantization_config = BitsAndBytesConfig(**quant_config)
+        # 创建配置管理器
+        config_manager = ModelConfigManager()
         
         try:
+            # 获取模型配置
+            model_config = config_manager.get_model_config(model_name)
+            gpu_config = config_manager.get_gpu_config(model_name)
+            quant_config = config_manager.get_quantization_config(model_name, quantization)
+            generation_config = config_manager.get_generation_config(model_name)
+            model_specific_config = config_manager.get_model_specific_config(model_name)
+            
+            # 确定GPU数量
+            if num_gpus is None:
+                num_gpus = gpu_config.get('num_gpus', 1)
+            
+            # 保存模型名称
+            self.model_name = model_name
+            
+            self.logger.info(f"加载模型: {model_name}")
+            self.logger.info(f"显示名称: {model_config['model']['display_name']}")
+            self.logger.info(f"GPU数量: {num_gpus}, 量化: {quantization}")
+            
+            # 检查GPU数量
+            if torch.cuda.is_available():
+                available_gpus = torch.cuda.device_count()
+                if num_gpus > available_gpus:
+                    self.logger.warning(f"请求的GPU数量({num_gpus})超过可用数量({available_gpus})，使用可用GPU数量")
+                    num_gpus = available_gpus
+            else:
+                num_gpus = 0
+                self.logger.warning("CUDA不可用，使用CPU")
+            
             # 加载tokenizer
             self.tokenizer = AutoTokenizer.from_pretrained(
-                model_config['model_name'],
+                model_name,
                 trust_remote_code=True
             )
             
@@ -82,35 +107,64 @@ class ModelEvaluator:
             if self.tokenizer.pad_token is None:
                 self.tokenizer.pad_token = self.tokenizer.eos_token
             
+            # 配置量化参数
+            quantization_config = None
+            if quantization != "none" and quant_config:
+                quantization_config = BitsAndBytesConfig(**quant_config)
+            
+            # 配置设备映射
+            device_map = gpu_config.get('device_map', 'auto')
+            if num_gpus > 1:
+                # 多GPU配置
+                max_memory = gpu_config.get('max_memory', {})
+                self.logger.info(f"使用多GPU配置，设备映射: {device_map}")
+                self.logger.info(f"内存配置: {max_memory}")
+            else:
+                # 单GPU配置
+                device_map = device_map if self.device == "cuda" else None
+            
             # 加载模型
+            model_kwargs = {
+                'quantization_config': quantization_config,
+                'device_map': device_map,
+                'torch_dtype': torch.float16 if self.device == "cuda" else torch.float32,
+                'trust_remote_code': model_specific_config.get('trust_remote_code', True),
+                'low_cpu_mem_usage': model_specific_config.get('low_cpu_mem_usage', True)
+            }
+            
+            # 添加多GPU内存配置
+            if num_gpus > 1 and 'max_memory' in gpu_config:
+                model_kwargs['max_memory'] = gpu_config['max_memory']
+            
             self.model = AutoModelForCausalLM.from_pretrained(
-                model_config['model_name'],
-                quantization_config=quantization_config,
-                device_map="auto" if self.device == "cuda" else None,
-                torch_dtype=torch.float16 if self.device == "cuda" else torch.float32,
-                trust_remote_code=True
+                model_name,
+                **model_kwargs
             )
             
-            # 创建pipeline
-            if quantization != "none":
-                # 使用量化时，不指定device，让accelerate自动处理
-                self.pipeline = pipeline(
-                    "text-generation",
-                    model=self.model,
-                    tokenizer=self.tokenizer,
-                    **{k: v for k, v in model_config.items() if k != 'model_name'}
-                )
-            else:
-                # 不使用量化时，可以指定device
-                self.pipeline = pipeline(
-                    "text-generation",
-                    model=self.model,
-                    tokenizer=self.tokenizer,
-                    device=self.device,
-                    **{k: v for k, v in model_config.items() if k != 'model_name'}
-                )
+            # 准备pipeline参数
+            pipeline_kwargs = {
+                'model': self.model,
+                'tokenizer': self.tokenizer,
+                'max_new_tokens': generation_config.get('max_new_tokens', 128),
+                'do_sample': generation_config.get('do_sample', True),
+                'temperature': generation_config.get('temperature', 0.7),
+                'top_p': generation_config.get('top_p', 0.9),
+                'top_k': generation_config.get('top_k', 50),
+                'repetition_penalty': generation_config.get('repetition_penalty', 1.1),
+                'pad_token_id': self.tokenizer.eos_token_id,
+                'eos_token_id': self.tokenizer.eos_token_id,
+                'return_full_text': generation_config.get('return_full_text', False)
+            }
             
-            self.logger.info(f"模型 {model_name} 加载成功")
+            # 创建pipeline - 使用更简单的方式
+            self.pipeline = pipeline(
+                "text-generation",
+                model=self.model,
+                tokenizer=self.tokenizer,
+                device_map="auto" if num_gpus > 1 else None
+            )
+            
+            self.logger.info(f"模型 {model_name} 加载成功 (GPU数量: {num_gpus})")
             
         except Exception as e:
             self.logger.error(f"加载模型失败: {e}")
@@ -128,31 +182,39 @@ class ModelEvaluator:
         self.logger.info(f"数据集加载完成，共 {len(df)} 个样本")
         return df
     
-    def generate_answer(self, problem: str, prompt_template: str) -> str:
+    def generate_answer(self, problem: str, prompt_template: str = None) -> str:
         """生成答案"""
         try:
+            # 如果没有提供提示模板，使用模型配置中的模板
+            if prompt_template is None:
+                from scripts.model_config_manager import ModelConfigManager
+                config_manager = ModelConfigManager()
+                prompt_template = config_manager.get_prompt_template(self.model_name)
+            
             # 构建提示
             prompt = prompt_template.format(problem=problem)
             
-            # 生成回答 - 使用更安全的参数
-            response = self.pipeline(
-                prompt,
-                max_new_tokens=128,  # 进一步减少生成长度
-                do_sample=True,
-                temperature=0.8,     # 提高温度，避免数值问题
-                top_p=0.9,           # 降低top_p
-                top_k=40,            # 降低top_k
-                repetition_penalty=1.0,  # 移除重复惩罚
-                pad_token_id=self.tokenizer.eos_token_id,
-                eos_token_id=self.tokenizer.eos_token_id,
-                return_full_text=False  # 只返回新生成的文本
-            )
+            # 使用更稳定的生成参数（参考CacheGen项目）
+            generation_kwargs = {
+                'max_new_tokens': 128,
+                'do_sample': False,  # 使用确定性生成
+                'num_beams': 1,      # 使用贪婪搜索
+                'pad_token_id': self.tokenizer.eos_token_id,
+                'eos_token_id': self.tokenizer.eos_token_id
+            }
+            
+            # 生成回答
+            response = self.pipeline(prompt, **generation_kwargs)
             
             # 提取生成的文本
             if isinstance(response, list) and len(response) > 0:
                 generated_text = response[0].get('generated_text', '')
                 if generated_text:
-                    answer = generated_text.strip()
+                    # 移除原始提示，只保留新生成的部分
+                    if prompt in generated_text:
+                        answer = generated_text[len(prompt):].strip()
+                    else:
+                        answer = generated_text.strip()
                 else:
                     answer = "生成失败：无输出"
             else:

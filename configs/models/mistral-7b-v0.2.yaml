@@ -1,0 +1,58 @@
+# Mistral 7B v0.2 模型配置
+model:
+  name: "mistral-community/Mistral-7B-v0.2"
+  display_name: "Mistral 7B v0.2"
+  description: "Mistral AI的7B参数模型，适合数学推理任务"
+  
+# GPU配置
+gpu:
+  num_gpus: 1                    # 使用1个GPU
+  max_memory_per_gpu: "8GB"      # 每个GPU最大内存
+  device_map: "auto"             # 自动设备映射
+  
+# 量化配置
+quantization:
+  default: "4bit"                # 默认使用4bit量化
+  options:
+    4bit:
+      load_in_4bit: true
+      bnb_4bit_compute_dtype: "float16"
+      bnb_4bit_quant_type: "nf4"
+      bnb_4bit_use_double_quant: true
+    8bit:
+      load_in_8bit: true
+    none:
+      load_in_4bit: false
+      load_in_8bit: false
+
+# 生成参数
+generation:
+  max_new_tokens: 128
+  do_sample: false  # 使用确定性生成
+  num_beams: 1      # 使用贪婪搜索
+  temperature: 1.0  # 确定性生成时设为1.0
+  top_p: 1.0        # 确定性生成时设为1.0
+  top_k: 1          # 确定性生成时设为1
+  repetition_penalty: 1.0
+  pad_token_id: null  # 自动设置
+  eos_token_id: null  # 自动设置
+
+# 模型特定设置
+model_specific:
+  trust_remote_code: true
+  torch_dtype: "float16"
+  low_cpu_mem_usage: true
+  
+# 评估设置
+evaluation:
+  max_samples_per_run: 100       # 每次评估最大样本数
+  timeout_seconds: 3600          # 评估超时时间
+  batch_size: 1                  # 批处理大小
+  
+# 提示模板
+prompt_template: |
+  You are a helpful math assistant. Please solve the following problem step by step:
+
+  Problem: {problem}
+
+  Solution: 

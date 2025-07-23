@@ -1,32 +1,31 @@
 #!/usr/bin/env python3
 """
-快速测试多个模型
+简单稳定的模型测试
+使用最基本的生成参数，避免卡住
 """
 
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 import logging
+import time
 
 # 设置日志
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-def test_model(model_name):
-    """测试单个模型"""
-    logger.info(f"🧪 快速测试: {model_name}")
+def simple_test(model_name):
+    """简单测试单个模型"""
+    logger.info(f"🧪 简单测试: {model_name}")
     
     try:
         # 1. 加载tokenizer
-        tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
+        logger.info("加载tokenizer...")
+        tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True, local_files_only=True)
         if tokenizer.pad_token is None:
             tokenizer.pad_token = tokenizer.eos_token
         
-        logger.info(f"EOS token ID: {tokenizer.eos_token_id}")
-        logger.info(f"PAD token ID: {tokenizer.pad_token_id}")
-        logger.info(f"UNK token ID: {tokenizer.unk_token_id}")
-        
         # 2. 加载模型
-        logger.info("加载模型（使用4bit量化）...")
+        logger.info("加载模型...")
         quantization_config = BitsAndBytesConfig(
             load_in_4bit=True,
             bnb_4bit_compute_dtype=torch.float16,
@@ -40,91 +39,104 @@ def test_model(model_name):
             torch_dtype=torch.float16,
             device_map="auto",
             trust_remote_code=True,
-            low_cpu_mem_usage=True
+            low_cpu_mem_usage=True,
+            local_files_only=True
         )
         
-        # 3. 测试推理
+        logger.info("模型加载完成！")
+        
+        # 3. 简单测试
         test_question = "What is 2 + 2?"
         
-        # 根据模型类型选择不同的提示格式
+        # 使用最简单的提示格式
         if "mistral" in model_name.lower():
-            # Mistral格式
-            prompt = f"<s>[INST] {test_question} [/INST]"
-        elif "llama" in model_name.lower():
-            # Llama格式
-            prompt = f"<s>[INST] {test_question} [/INST]"
+            prompt = f"[INST] {test_question} [/INST]"
         elif "longalpaca" in model_name.lower():
-            # LongAlpaca格式
             prompt = f"<|im_start|>user\n{test_question}<|im_end|>\n<|im_start|>assistant\n"
         else:
-            # 默认格式
             prompt = f"{test_question}\nAnswer:"
         
-        logger.info(f"输入: {prompt}")
+        logger.info(f"提示: {prompt}")
         
         # 编码输入
-        inputs = tokenizer(prompt, return_tensors="pt", padding=True, truncation=True)
+        inputs = tokenizer(prompt, return_tensors="pt")
         input_ids = inputs.input_ids.to(model.device)
-        attention_mask = inputs.attention_mask.to(model.device)
         
-        logger.info(f"输入tokens: {input_ids}")
-        logger.info(f"设备: {input_ids.device}")
         logger.info(f"输入长度: {input_ids.shape[1]}")
-        logger.info(f"注意力掩码: {attention_mask}")
-        
         logger.info("开始生成...")
         
-        # 生成
+        start_time = time.time()
+        
+        # 使用最基本的生成参数
         with torch.no_grad():
             outputs = model.generate(
                 input_ids,
-                attention_mask=attention_mask,
-                max_new_tokens=50,
+                max_new_tokens=10,  # 减少生成长度
                 do_sample=False,
                 num_beams=1,
-                pad_token_id=tokenizer.pad_token_id,
-                eos_token_id=tokenizer.eos_token_id,
-                temperature=0.1
+                pad_token_id=tokenizer.eos_token_id,
+                eos_token_id=tokenizer.eos_token_id
             )
         
-        logger.info(f"生成完成，输出形状: {outputs.shape}")
+        end_time = time.time()
+        generation_time = end_time - start_time
         
-        # 解码完整输出
+        logger.info(f"生成完成，耗时: {generation_time:.2f}秒")
+        logger.info(f"输出形状: {outputs.shape}")
+        
+        # 解码
         full_response = tokenizer.decode(outputs[0], skip_special_tokens=True)
         logger.info(f"完整输出: {full_response}")
         
-        # 提取答案部分
+        # 简单提取答案
         if prompt in full_response:
             answer = full_response[len(prompt):].strip()
         else:
             answer = full_response.strip()
         
-        logger.info(f"生成答案: {answer}")
+        logger.info(f"提取的答案: '{answer}'")
         
         if answer.strip():
-            logger.info("✅ 推理成功！")
+            logger.info("✅ 生成成功！")
         else:
             logger.warning("⚠️ 生成了空答案")
+        
+        return answer.strip()
         
     except Exception as e:
         logger.error(f"❌ 测试失败: {e}")
         import traceback
         traceback.print_exc()
+        return ""
 
 def main():
     """主函数"""
+    # 先测试较小的模型
     models = [
-        "microsoft/DialoGPT-medium",
-        "lmsys/longchat-7b-16k",
-        "Yukang/LongAlpaca-70B-16k",
-        "meta-llama/Llama-2-7b-chat-hf",
-        "mistralai/Mistral-7B-Instruct-v0.2"
+        "microsoft/DialoGPT-medium",  # 小模型，应该很快
+        "mistralai/Mistral-7B-Instruct-v0.2"  # 7B模型
     ]
     
+    results = {}
+    
     for model_name in models:
-        test_model(model_name)
-        logger.info("=" * 80)
-        logger.info("")
+        logger.info(f"\n{'='*60}")
+        answer = simple_test(model_name)
+        results[model_name] = answer
+        logger.info(f"{'='*60}")
+        
+        # 如果第一个模型成功，再测试70B
+        if model_name == "microsoft/DialoGPT-medium" and answer.strip():
+            logger.info("小模型测试成功，继续测试70B模型...")
+            answer_70b = simple_test("Yukang/LongAlpaca-70B-16k")
+            results["Yukang/LongAlpaca-70B-16k"] = answer_70b
+            break
+    
+    # 总结结果
+    logger.info("\n📊 测试结果总结:")
+    for model_name, answer in results.items():
+        status = "✅ 成功" if answer.strip() else "❌ 失败"
+        logger.info(f"{model_name}: {status} - '{answer}'")
 
 if __name__ == "__main__":
     main() 

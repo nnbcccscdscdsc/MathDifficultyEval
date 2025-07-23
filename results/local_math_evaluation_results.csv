@@ -1,0 +1,10 @@
+id,difficulty,question,correct_answer,generated_answer,openai_score
+elementary_0,elementary,What is 87 + 10?,97.0,I'm not sure.,85.0
+elementary_1,elementary,What is 74 + 79?,153.0,I'm not sure.,70.0
+elementary_2,elementary,"If 2 people share 43 candies equally, how many does each person get?",21.0,I'm not sure.,70.0
+middle_0,middle,What is 40% of 115?,46.0,I'm not sure.,70.0
+middle_1,middle,Solve for x: 8x + 19 = 37,2.25,x : 8x,60.0
+middle_2,middle,What is 37% of 28?,10.36,I'm not sure.,70.0
+college_0,college,Find the limit of (x² - 8)/(x - 2) as x approaches 2,8.0,Find the limit of the number of times x has been divided by 2.,20.0
+college_1,college,Find the limit of (x² - 7)/(x - 5) as x approaches 5,7.0,x is not a number.,60.0
+college_2,college,Find the limit of (x² - 16)/(x - 2) as x approaches 2,16.0,x 2,85.0

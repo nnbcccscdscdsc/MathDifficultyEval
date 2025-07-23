@@ -119,7 +119,7 @@ evaluation:
 
 # OpenAI评分配置
 openai_scoring:
-  enabled: false
+  enabled: true
   model: "gpt-3.5-turbo"
   temperature: 0.0
   max_tokens: 100
