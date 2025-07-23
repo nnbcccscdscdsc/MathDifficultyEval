@@ -1,0 +1,135 @@
+id,problem,solution,answer,difficulty,dataset
+elementary_0,What is 87 + 10?,87 + 10 = 97,97,elementary,local_math
+elementary_1,What is 74 + 79?,74 + 79 = 153,153,elementary,local_math
+elementary_2,"If 2 people share 43 candies equally, how many does each person get?",43 ÷ 2 = 21,21,elementary,local_math
+elementary_3,"If you have 38 apples and you eat 4, how many do you have left?",38 - 4 = 0,0,elementary,local_math
+elementary_4,"If 3 people share 77 candies equally, how many does each person get?",77 ÷ 3 = 25,25,elementary,local_math
+elementary_5,"If 5 people share 24 candies equally, how many does each person get?",24 ÷ 5 = 4,4,elementary,local_math
+elementary_6,What is 23 + 11?,23 + 11 = 34,34,elementary,local_math
+elementary_7,"If 4 people share 67 candies equally, how many does each person get?",67 ÷ 4 = 16,16,elementary,local_math
+elementary_8,"If 9 people share 85 candies equally, how many does each person get?",85 ÷ 9 = 9,9,elementary,local_math
+elementary_9,What is 32 + 30?,32 + 30 = 62,62,elementary,local_math
+elementary_10,What is 97 + 41?,97 + 41 = 138,138,elementary,local_math
+elementary_11,"If 10 people share 73 candies equally, how many does each person get?",73 ÷ 10 = 7,7,elementary,local_math
+elementary_12,"If 7 people share 62 candies equally, how many does each person get?",62 ÷ 7 = 8,8,elementary,local_math
+elementary_13,"If you have 31 apples and you eat 8, how many do you have left?",31 - 8 = 0,0,elementary,local_math
+elementary_14,What is 3 × 10?,3 × 10 = 30,30,elementary,local_math
+elementary_15,What is 8 × 4?,8 × 4 = 32,32,elementary,local_math
+elementary_16,"If you have 10 apples and you eat 5, how many do you have left?",10 - 5 = 0,0,elementary,local_math
+elementary_17,"If you have 37 apples and you eat 7, how many do you have left?",37 - 7 = 0,0,elementary,local_math
+elementary_18,What is 8 × 8?,8 × 8 = 64,64,elementary,local_math
+elementary_19,What is 2 × 6?,2 × 6 = 12,12,elementary,local_math
+middle_0,What is 40% of 115?,40% of 115 = (40/100) × 115 = 46.0,46.0,middle,local_math
+middle_1,Solve for x: 8x + 19 = 37,"8x + 19 = 37
+8x = 37 - 19
+x = (37 - 19) / 8
+x = 2.25",2.25,middle,local_math
+middle_2,What is 37% of 28?,37% of 28 = (37/100) × 28 = 10.36,10.36,middle,local_math
+middle_3,Solve for x: 10x + 2 = 53,"10x + 2 = 53
+10x = 53 - 2
+x = (53 - 2) / 10
+x = 5.1",5.1,middle,local_math
+middle_4,Find the area of a rectangle with length 17 and width 6,"Area = length × width
+Area = 17 × 6
+Area = 102",102,middle,local_math
+middle_5,Solve for x: 10x + 2 = 58,"10x + 2 = 58
+10x = 58 - 2
+x = (58 - 2) / 10
+x = 5.6",5.6,middle,local_math
+middle_6,Solve for x: 6x + 13 = 96,"6x + 13 = 96
+6x = 96 - 13
+x = (96 - 13) / 6
+x = 13.833333333333334",13.833333333333334,middle,local_math
+middle_7,Find the area of a rectangle with length 19 and width 9,"Area = length × width
+Area = 19 × 9
+Area = 171",171,middle,local_math
+middle_8,Solve for x: 9x + 2 = 79,"9x + 2 = 79
+9x = 79 - 2
+x = (79 - 2) / 9
+x = 8.555555555555555",8.555555555555555,middle,local_math
+middle_9,Find the area of a rectangle with length 14 and width 11,"Area = length × width
+Area = 14 × 11
+Area = 154",154,middle,local_math
+middle_10,What is 49% of 153?,49% of 153 = (49/100) × 153 = 74.97,74.97,middle,local_math
+middle_11,Solve for x: 6x + 12 = 51,"6x + 12 = 51
+6x = 51 - 12
+x = (51 - 12) / 6
+x = 6.5",6.5,middle,local_math
+middle_12,Find the area of a rectangle with length 15 and width 7,"Area = length × width
+Area = 15 × 7
+Area = 105",105,middle,local_math
+middle_13,Solve for x: 7x + 7 = 73,"7x + 7 = 73
+7x = 73 - 7
+x = (73 - 7) / 7
+x = 9.428571428571429",9.428571428571429,middle,local_math
+middle_14,Find the area of a rectangle with length 12 and width 3,"Area = length × width
+Area = 12 × 3
+Area = 36",36,middle,local_math
+middle_15,Solve for x: 3x + 9 = 70,"3x + 9 = 70
+3x = 70 - 9
+x = (70 - 9) / 3
+x = 20.333333333333332",20.333333333333332,middle,local_math
+middle_16,What is 20% of 115?,20% of 115 = (20/100) × 115 = 23.0,23.0,middle,local_math
+middle_17,Find the area of a rectangle with length 18 and width 13,"Area = length × width
+Area = 18 × 13
+Area = 234",234,middle,local_math
+middle_18,Find the area of a rectangle with length 13 and width 11,"Area = length × width
+Area = 13 × 11
+Area = 143",143,middle,local_math
+middle_19,What is 25% of 169?,25% of 169 = (25/100) × 169 = 42.25,42.25,middle,local_math
+college_0,Find the limit of (x² - 8)/(x - 2) as x approaches 2,"Using L'Hôpital's rule:
+lim(x→2) (x² - 8)/(x - 2)
+= lim(x→2) 2x/1
+= 2(2) = 8",8,college,local_math
+college_1,Find the limit of (x² - 7)/(x - 5) as x approaches 5,"Using L'Hôpital's rule:
+lim(x→5) (x² - 7)/(x - 5)
+= lim(x→5) 2x/1
+= 2(5) = 7",7,college,local_math
+college_2,Find the limit of (x² - 16)/(x - 2) as x approaches 2,"Using L'Hôpital's rule:
+lim(x→2) (x² - 16)/(x - 2)
+= lim(x→2) 2x/1
+= 2(2) = 16",16,college,local_math
+college_3,Find the limit of (x² - 10)/(x - 2) as x approaches 2,"Using L'Hôpital's rule:
+lim(x→2) (x² - 10)/(x - 2)
+= lim(x→2) 2x/1
+= 2(2) = 10",10,college,local_math
+college_4,Find the derivative of f(x) = 3x² + 5x + 7,"f'(x) = 2(3)x + 5
+f'(x) = 6x + 5",6,college,local_math
+college_5,Find the limit of (x² - 18)/(x - 5) as x approaches 5,"Using L'Hôpital's rule:
+lim(x→5) (x² - 18)/(x - 5)
+= lim(x→5) 2x/1
+= 2(5) = 18",18,college,local_math
+college_6,Find the derivative of f(x) = 3x² + 9x + 20,"f'(x) = 2(3)x + 9
+f'(x) = 6x + 9",6,college,local_math
+college_7,Calculate the integral of ∫(4x + 9)dx,"∫(4x + 9)dx = (4/2)x² + 9x + C
+= 2.0x² + 9x + C",2.0,college,local_math
+college_8,Calculate the integral of ∫(2x + 5)dx,"∫(2x + 5)dx = (2/2)x² + 5x + C
+= 1.0x² + 5x + C",1.0,college,local_math
+college_9,Find the derivative of f(x) = 1x² + 1x + 6,"f'(x) = 2(1)x + 1
+f'(x) = 2x + 1",2,college,local_math
+college_10,Find the derivative of f(x) = 3x² + 3x + 4,"f'(x) = 2(3)x + 3
+f'(x) = 6x + 3",6,college,local_math
+college_11,Calculate the integral of ∫(3x + 5)dx,"∫(3x + 5)dx = (3/2)x² + 5x + C
+= 1.5x² + 5x + C",1.5,college,local_math
+college_12,Find the limit of (x² - 12)/(x - 4) as x approaches 4,"Using L'Hôpital's rule:
+lim(x→4) (x² - 12)/(x - 4)
+= lim(x→4) 2x/1
+= 2(4) = 12",12,college,local_math
+college_13,Find the derivative of f(x) = 4x² + 3x + 15,"f'(x) = 2(4)x + 3
+f'(x) = 8x + 3",8,college,local_math
+college_14,Calculate the integral of ∫(2x + 9)dx,"∫(2x + 9)dx = (2/2)x² + 9x + C
+= 1.0x² + 9x + C",1.0,college,local_math
+college_15,Calculate the integral of ∫(4x + 1)dx,"∫(4x + 1)dx = (4/2)x² + 1x + C
+= 2.0x² + 1x + C",2.0,college,local_math
+college_16,Find the limit of (x² - 5)/(x - 3) as x approaches 3,"Using L'Hôpital's rule:
+lim(x→3) (x² - 5)/(x - 3)
+= lim(x→3) 2x/1
+= 2(3) = 5",5,college,local_math
+college_17,Find the derivative of f(x) = 2x² + 10x + 14,"f'(x) = 2(2)x + 10
+f'(x) = 4x + 10",4,college,local_math
+college_18,Find the limit of (x² - 25)/(x - 4) as x approaches 4,"Using L'Hôpital's rule:
+lim(x→4) (x² - 25)/(x - 4)
+= lim(x→4) 2x/1
+= 2(4) = 25",25,college,local_math
+college_19,Calculate the integral of ∫(4x + 3)dx,"∫(4x + 3)dx = (4/2)x² + 3x + C
+= 2.0x² + 3x + C",2.0,college,local_math
