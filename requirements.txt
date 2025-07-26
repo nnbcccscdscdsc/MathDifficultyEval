@@ -42,7 +42,7 @@ ipywidgets>=8.0.0
 
 # 其他工具
 psutil>=5.9.0
-memory-profiler>=0.60.0
+memory-profiler>=0.60.0 
 
 # OpenAI API
 openai==0.28.0 

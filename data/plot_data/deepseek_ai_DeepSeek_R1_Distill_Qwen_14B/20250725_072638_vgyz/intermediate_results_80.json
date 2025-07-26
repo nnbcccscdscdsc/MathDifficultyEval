@@ -1,0 +1,192 @@
+[
+  {
+    "id": "deepmath_7.0_19",
+    "problem": "Calculate the inverse Fourier transform of \\( \\frac{1}{a+\\mathrm{j}w} \\) using the definition:\n\\[\nf(t)=\\frac{1}{2\\pi}\\int_{-\\infty}^\\infty\\frac{1}{a+\\mathrm{j}w}\\mathrm{e}^{\\mathrm{j}wt}\\,\\mathrm{d}w.\n\\]",
+    "correct_answer": "e^{-at} u(t)",
+    "standard_solution": "Topic: Mathematics -> Calculus -> Integral Calculus -> Techniques of Integration -> Multi-variable, Difficulty: 7.0",
+    "model_response": "Okay, so I need to find the inverse Fourier transform of \\( \\frac{1}{a + jw} \\). Hmm, let me recall what the inverse Fourier transform is. The formula for the inverse Fourier transform is:\n\n\\[\nf(t) = \\frac{1}{2\\pi} \\int_{-\\infty}^\\infty F(w) e^{j w t} dw\n\\]\n\nwhere \\( F(w) \\) is the Fourier transform of \\( f(t) \\). In this case, \\( F(w) = \\frac{1}{a + jw} \\).\n\nSo, plugging that into the inverse transform formula, we get:\n\n\\[\nf(t) = \\frac{1}{2\\pi} \\int_{-\\infty}^\\infty \\frac{1}{a + jw} e^{j w t} dw\n\\]\n\nHmm, okay. This integral looks a bit tricky because it's an improper integral over the entire real line. Maybe I can simplify the integrand first.\n\nLet me rewrite the integrand:\n\n\\[\n\\frac{1}{a + jw} e^{j w t}\n\\]\n\nI think I can combine these terms somehow. Let me see... If I write it as:\n\n\\[\n\\frac{e^{j w t}}{a + jw}\n\\]\n\nMaybe I can factor out constants or make a substitution? Wait, perhaps using complex analysis techniques would help here,",
+    "difficulty": 7.0,
+    "topic": "Mathematics -> Calculus -> Integral Calculus -> Techniques of Integration -> Multi-variable",
+    "evaluation": {
+      "answer_correctness": 10,
+      "reasoning_logic": 6,
+      "step_completeness": 5,
+      "mathematical_accuracy": 7,
+      "expression_clarity": 6,
+      "overall_score": 6.8,
+      "comments": "The final answer is correct. The reasoning process lacks clarity and structure compared to the standard solution. Some steps are missing, and the approach could be more systematic. Mathematical accuracy is decent, but there are areas for improvement. The expression could be clearer and more organized."
+    },
+    "generation_status": "success"
+  },
+  {
+    "id": "deepmath_4.0_18",
+    "problem": "The sum of the first $20$ positive even integers is also the sum of four consecutive even integers. What is the largest of these four integers?",
+    "correct_answer": "108",
+    "standard_solution": "Topic: Mathematics -> Algebra -> Prealgebra -> Integers, Difficulty: 4.0",
+    "model_response": "Okay, so I need to find the sum of the first 20 positive even integers, and that same sum should be equal to the sum of four consecutive even integers. Then, I have to figure out what the largest of those four integers is.\n\nFirst, let me recall how to find the sum of the first n even numbers. The formula for the sum of the first n even integers is \\( n(n + 1) \\). So if n is 20, then the sum would be \\( 20 \\times 21 = 420 \\).\n\nSo, the total sum we're dealing with is 420.\n\nNow, this sum is also equal to the sum of four consecutive even integers. Let's denote these four consecutive even integers as \\( x \\), \\( x+2 \\), \\( x+4 \\), and \\( x+6 \\), where \\( x \\) is the smallest of them. \n\nAdding them up: \n\\( x + (x + 2) + (x + 4) + (x + 6) = 4x + 12 \\).\n\nWe know this equals 420, so:\n\\( 4x + 12 = 420 \\).\n\nLet me solve for x:\nSubtract 12 from both sides: \\( 4x = 408 \\).\nDivide by 4: \\( x = 102 \\).\n\nTherefore,",
+    "difficulty": 4.0,
+    "topic": "Mathematics -> Algebra -> Prealgebra -> Integers",
+    "evaluation": {
+      "answer_correctness": 10,
+      "reasoning_logic": 10,
+      "step_completeness": 10,
+      "mathematical_accuracy": 10,
+      "expression_clarity": 10,
+      "overall_score": 10,
+      "comments": "The answer is correct and the reasoning process is clear and logical. All necessary steps are shown, and the mathematical calculations are accurate. The expression is clear and easy to understand, matching the standard solution."
+    },
+    "generation_status": "success"
+  },
+  {
+    "id": "deepmath_4.0_22",
+    "problem": "A point $(x,y)$ is randomly and uniformly chosen inside the square with vertices (0,0), (0,2), (2,2), and (2,0).  What is the probability that $x+y < 3$?",
+    "correct_answer": "\\dfrac{7}{8}",
+    "standard_solution": "Topic: Mathematics -> Applied Mathematics -> Statistics -> Probability -> Other, Difficulty: 4.0",
+    "model_response": "Okay, so I have this problem where a point (x, y) is randomly chosen inside a square with vertices at (0,0), (0,2), (2,2), and (2,0). I need to find the probability that x + y < 3. Hmm, let's try to break this down step by step.\n\nFirst off, since the point is chosen uniformly, the probability will be the area of the region where x + y < 3 divided by the total area of the square. That makes sense because uniform distribution means every point has an equal chance, so we're essentially comparing areas here.\n\nAlright, the square has sides from 0 to 2 on both the x and y axes. So, the total area of the square is 2 * 2 = 4. Got that part down.\n\nNow, I need to figure out the area where x + y < 3. Let me visualize this. The line x + y = 3 would cross the square somewhere. Since our square goes up to (2,2), let me see where the line intersects the square.\n\nWhen x = 0, y would be 3, but wait, the square only goes up to y=2. Similarly, when y=0, x would be 3, which is beyond the square's boundary at x=2. So, instead of intersecting at (0,3) and (3,0), it must intersect",
+    "difficulty": 4.0,
+    "topic": "Mathematics -> Applied Mathematics -> Statistics -> Probability -> Other",
+    "evaluation": {
+      "answer_correctness": 10,
+      "reasoning_logic": 8,
+      "step_completeness": 7,
+      "mathematical_accuracy": 9,
+      "expression_clarity": 8,
+      "overall_score": 8.4,
+      "comments": "The final answer is correct. The reasoning process is clear and logical, but some steps could be more detailed. The mathematical accuracy is high, and the expression is generally clear."
+    },
+    "generation_status": "success"
+  },
+  {
+    "id": "deepmath_2.0_2",
+    "problem": "Determine whether the logical statement \\( \\forall x\\,P(x) \\to \\exists x\\,P(x) \\) is true.",
+    "correct_answer": "true",
+    "standard_solution": "Topic: Mathematics -> Discrete Mathematics -> Logic, Difficulty: 2.0",
+    "model_response": "Okay, so I have this logical statement: \"For all x, P(x) implies there exists an x such that P(x).\" Hmm, let me write it down to make sure I got it right. It's written as \\( \\forall x\\,P(x) \\to \\exists x\\,P(x) \\). Alright, so the question is asking if this statement is always true.\n\nFirst off, let me recall some basic concepts in logic. A universal statement like \\( \\forall x\\,P(x) \\) means that every single element x has property P. On the other hand, an existential statement like \\( \\exists x\\,P(x) \\) just says that at least one element x has property P. So, intuitively, if every x satisfies P, then certainly there must be at least one x that satisfies P. That makes sense because if all of them satisfy P, you can pick any one of them as the witness for the existence part.\n\nBut wait, maybe I should think about it more formally. Let me consider what the implication \\( \\forall x\\,P(x) \\to \\exists x\\,P(x) \\) actually means. In logic, an implication A → B is only false when A is true and B is false. So, for our case, we need to check if there's a situation where \\( \\forall x\\,P(x) \\) is true but \\( \\exists x\\,P(x",
+    "difficulty": 2.0,
+    "topic": "Mathematics -> Discrete Mathematics -> Logic",
+    "evaluation": {
+      "answer_correctness": 10,
+      "reasoning_logic": 9,
+      "step_completeness": 8,
+      "mathematical_accuracy": 10,
+      "expression_clarity": 10,
+      "overall_score": 9.4,
+      "comments": "The answer is correct and the reasoning process is clear and logical, aligning well with the standard solution. The solution could be improved by completing the final reasoning step explicitly."
+    },
+    "generation_status": "success"
+  },
+  {
+    "id": "deepmath_3.5_14",
+    "problem": "In triangle \\(ABC\\), angle \\(A\\) measures \\(120^\\circ\\). The angle bisectors \\(AA_1\\), \\(BB_1\\), and \\(CC_1\\) are drawn. Determine the measure of angle \\(C_1 A_1 B_1\\).",
+    "correct_answer": "90^\\circ",
+    "standard_solution": "Topic: Mathematics -> Geometry -> Plane Geometry -> Angles, Difficulty: 3.5",
+    "model_response": "Okay, so I have this geometry problem here: In triangle ABC, angle A is 120 degrees. They've drawn the angle bisectors AA₁, BB₁, and CC₁. I need to find the measure of angle C₁A₁B₁.\n\nFirst off, let me try to visualize this. Triangle ABC with angle A being 120°. So, it's an obtuse-angled triangle at A. Now, angle bisectors from each vertex will meet the opposite sides. These bisectors intersect at points A₁, B₁, and C₁ on the sides BC, AC, and AB respectively.\n\nI remember that in a triangle, the intersection point of all three angle bisectors is called the incenter. The incenter is equidistant from all sides and is the center of the inscribed circle. But wait, the question isn't directly asking about the incenter; instead, it's asking about the angles formed by these bisectors at specific points. Hmm.\n\nSo, they want the measure of angle C₁A₁B₁. Let me parse this notation. Points A₁, B₁, and C₁ are the feet of the angle bisectors on the opposite sides. So, C₁ is on AB, A₁ is on BC, and B₁ is on AC.\n\nTherefore, angle C₁A₁B₁ is the angle at point A₁ between points C₁ and B₁. So, if I imagine triangle",
+    "difficulty": 3.5,
+    "topic": "Mathematics -> Geometry -> Plane Geometry -> Angles",
+    "evaluation": {
+      "answer_correctness": 10,
+      "reasoning_logic": 8,
+      "step_completeness": 7,
+      "mathematical_accuracy": 9,
+      "expression_clarity": 8,
+      "overall_score": 8.4,
+      "comments": "The answer provided is correct. The reasoning process is clear and logical, although it could be more concise and focused on the specific task of finding the angle C₁A₁B₁. The solution lacks a bit in step completeness as it could have explicitly mentioned using angle bisector properties to determine the angle. The mathematical accuracy is good, and the expression is generally clear but could be improved by being more direct and structured."
+    },
+    "generation_status": "success"
+  },
+  {
+    "id": "deepmath_8.0_79",
+    "problem": "Given a random sample $X_1, X_2, \\cdots, X_n$ from a distribution with the probability density function $$f(x;\\theta)=\\frac{1}{\\theta}x^{(1-\\theta)/\\theta}\\, , 0<x<\\infty\\, , 0<\\theta<\\infty,$$ find the asymptotic variance of the maximum likelihood estimator $\\hat\\theta$ using the Rao–Cramér lower bound.",
+    "correct_answer": "\\dfrac{\\theta^2}{n}",
+    "standard_solution": "Topic: Mathematics -> Applied Mathematics -> Statistics -> Mathematical Statistics, Difficulty: 8.0",
+    "model_response": "Alright, so I have this problem where I need to find the asymptotic variance of the maximum likelihood estimator (MLE) for a parameter θ. The given probability density function is f(x;θ) = (1/θ)x^{(1−θ)/θ}, defined for x between 0 and infinity, and θ also being positive. \n\nI remember that the asymptotic variance of an MLE can be found using the Rao-Cramér lower bound, which relates the variance of an estimator to the Fisher information. Specifically, the asymptotic variance is the reciprocal of the Fisher information evaluated at the true parameter value. So, my plan is to compute the Fisher information I(θ), take its reciprocal, and that should give me the asymptotic variance of the MLE.\n\nFirst, let's recall that the Fisher information I(θ) is defined as the expected value of the square of the derivative of the log-likelihood function with respect to θ. Mathematically, it's:\n\n$$\nI(\\theta) = E\\left[ \\left( \\frac{\\partial}{\\partial \\theta} \\log f(X; \\theta) \\right)^2 \\right]\n$$\n\nAlternatively, since calculating expectations can sometimes be tricky, another approach is to use the formula involving the second derivative of the log-likelihood:\n\n$$\nI(\\theta) = -E\\left[ \\frac{\\partial^2}{\\partial \\theta^2} \\log f",
+    "difficulty": 8.0,
+    "topic": "Mathematics -> Applied Mathematics -> Statistics -> Mathematical Statistics",
+    "evaluation": {
+      "answer_correctness": 10,
+      "reasoning_logic": 9,
+      "step_completeness": 8,
+      "mathematical_accuracy": 9,
+      "expression_clarity": 9,
+      "overall_score": 9,
+      "comments": "The final answer is correct. The reasoning process is clear and logical, following the correct approach using the Fisher information. Most necessary solution steps are shown, but some more detail in the calculation steps could improve completeness. Mathematical calculations and formulas are accurate. The expression is clear and easy to understand."
+    },
+    "generation_status": "success"
+  },
+  {
+    "id": "deepmath_1.0_0",
+    "problem": "Find the equation of the line passing through the points (3, 4) and (1, 2).",
+    "correct_answer": "y = x + 1",
+    "standard_solution": "Topic: Mathematics -> Algebra -> Prealgebra -> Simple Equations, Difficulty: 1.0",
+    "model_response": "To find the equation of the line passing through the points \\( (3, 4) \\) and \\( (1, 2) \\), follow these steps:\n\n**Step 1: Calculate the slope (\\( m \\)) of the line.**\n\nThe formula for the slope between two points \\( (x_1, y_1) \\) and \\( (x_2, y_2) \\) is:\n\\[\nm = \\frac{y_2 - y_1}{x_2 - x_1}\n\\]\n\nSubstituting the given points into the formula:\n\\[\nm = \\frac{2 - 4}{1 - 3} = \\frac{-2}{-2} = 1\n\\]\n\nSo, the slope \\( m \\) is **1**.\n\n**Step 2: Use the point-slope form to write the equation of the line.**\n\nThe point-slope form is:\n\\[\ny - y_1 = m(x - x_1)\n\\]\n\nUsing one of the points, say \\( (3, 4) \\):\n\\[\ny - 4 = 1(x - 3)\n\\]\n\\[\ny - 4 = x - 3\n\\]\n\n**Step 3: Simplify to convert it into the slope-intercept form (\\( y = mx + b \\)).**\n\nAdd 4 to both sides:\n\\[\ny = x - 3 +",
+    "difficulty": 1.0,
+    "topic": "Mathematics -> Algebra -> Prealgebra -> Simple Equations",
+    "evaluation": {
+      "answer_correctness": 8,
+      "reasoning_logic": 8,
+      "step_completeness": 8,
+      "mathematical_accuracy": 9,
+      "expression_clarity": 9,
+      "overall_score": 8.4,
+      "comments": "The final answer is correct, and the reasoning process is clear and logical. All necessary solution steps are shown, but there was a minor error in the simplification step. The mathematical calculations and formulas are accurate. The expression is clear and easy to understand."
+    },
+    "generation_status": "success"
+  },
+  {
+    "id": "deepmath_4.5_77",
+    "problem": "Find the maximum value of the function \\( f(x) = \\sin x + \\sqrt{3} \\cos x - 2 \\sin 3x \\).",
+    "correct_answer": "\\dfrac{16\\sqrt{3}}{9}",
+    "standard_solution": "Topic: Mathematics -> Precalculus -> Trigonometric Functions, Difficulty: 4.5",
+    "model_response": "Okay, so I need to find the maximum value of the function \\( f(x) = \\sin x + \\sqrt{3} \\cos x - 2 \\sin 3x \\). Hmm, let's see. I remember that functions like \\( a \\sin x + b \\cos x \\) can be rewritten using the amplitude-phase form, which is something like \\( R \\sin(x + \\phi) \\), where \\( R = \\sqrt{a^2 + b^2} \\). Maybe I can apply that idea here.\n\nFirst, let me look at the first two terms: \\( \\sin x + \\sqrt{3} \\cos x \\). Let me write them in the form \\( R \\sin(x + \\phi) \\). \n\nSo, for \\( a = 1 \\) (coefficient of \\( \\sin x \\)) and \\( b = \\sqrt{3} \\) (coefficient of \\( \\cos x \\)), the amplitude \\( R \\) would be:\n\\[ R = \\sqrt{a^2 + b^2} = \\sqrt{1^2 + (\\sqrt{3})^2} = \\sqrt{1 + 3} = \\sqrt{4} = 2 \\]\n\nNow, to find the phase angle \\( \\phi \\):\n\\[ \\tan \\phi = \\frac{b}{a} = \\frac{\\sqrt{3}}{1} = \\sqrt{3} \\",
+    "difficulty": 4.5,
+    "topic": "Mathematics -> Precalculus -> Trigonometric Functions",
+    "evaluation": {
+      "answer_correctness": 10,
+      "reasoning_logic": 8,
+      "step_completeness": 8,
+      "mathematical_accuracy": 9,
+      "expression_clarity": 9,
+      "overall_score": 8.8,
+      "comments": "The final answer is correct. The reasoning process is clear and logical, but there are some minor errors in the phase angle calculation. The solution is mostly complete but could benefit from additional steps to fully match the standard solution. The mathematical calculations and formulas are accurate. The expression is clear and easy to understand."
+    },
+    "generation_status": "success"
+  },
+  {
+    "id": "deepmath_6.5_82",
+    "problem": "Provide a counterexample to the statement: \"If two subgroups of a group are isomorphic and one is normal, then the other must also be normal.\"",
+    "correct_answer": "D_4",
+    "standard_solution": "Topic: Mathematics -> Algebra -> Abstract Algebra -> Group Theory, Difficulty: 6.5",
+    "model_response": "Alright, so I have this problem where I need to find a counterexample to the statement: \"If two subgroups of a group are isomorphic and one is normal, then the other must also be normal.\" Hmm, okay. Let me break this down.\n\nFirst, let's understand the terms involved. A subgroup is just a subset of a group that itself forms a group under the same operation as the larger group. Now, when we say two subgroups are isomorphic, it means there exists a bijective (one-to-one and onto) homomorphism between them. In simpler terms, they have the same structure in terms of their algebraic properties.\n\nA normal subgroup is a special kind of subgroup where it remains unchanged under conjugation by any element of the main group. Mathematically, for a subgroup \\( N \\) of a group \\( G \\), if \\( gNg^{-1} = N \\) for all \\( g \\in G \\), then \\( N \\) is normal in \\( G \\). This property is crucial because normal subgroups allow us to form factor groups, which are essential in understanding the structure of groups.\n\nSo, the original statement says that if you have two isomorphic subgroups, and one is normal, the other should also be normal. But the task is to find a counterexample where this isn't true. That is, find a group with two isomorphic subgroups where one is normal, but the other isn't.\n\nLet",
+    "difficulty": 6.5,
+    "topic": "Mathematics -> Algebra -> Abstract Algebra -> Group Theory",
+    "evaluation": {
+      "answer_correctness": 10,
+      "reasoning_logic": 10,
+      "step_completeness": 10,
+      "mathematical_accuracy": 10,
+      "expression_clarity": 10,
+      "overall_score": 10,
+      "comments": "The answer is correct and provides a clear and logical reasoning process. All necessary steps are shown, and the mathematical accuracy is on point. The expression is easy to understand, breaking down the terms involved and explaining the concept of normal subgroups effectively."
+    },
+    "generation_status": "success"
+  },
+  {
+    "id": "deepmath_8.5_34",
+    "problem": "Determine whether there exists a continuous function \\( f: \\mathbb{R}^2 \\to \\mathbb{R} \\) that cannot be expressed as a finite sum of the form \\( f(x,y) = \\sum_i g_i(x)h_i(y) \\), where \\( g_i \\) and \\( h_i \\) are functions of one variable.",
+    "correct_answer": "Yes",
+    "standard_solution": "Topic: Mathematics -> Other, Difficulty: 8.5",
+    "model_response": "Alright, so I have this problem: I need to figure out if there's a continuous function from \\(\\mathbb{R}^2\\) to \\(\\mathbb{R}\\) that can't be written as a finite sum of products of single-variable functions. In other words, is there a continuous \\(f(x, y)\\) such that you can't express it as \\(f(x, y) = \\sum_{i=1}^n g_i(x)h_i(y)\\) for some functions \\(g_i\\) and \\(h_i\\).\n\nHmm, okay. Let me think about what kind of functions can be expressed in that way. If \\(f(x, y)\\) can be written as a finite sum of products of functions each depending only on \\(x\\) or \\(y\\), then it belongs to the class of functions called \"separable\" functions. So, essentially, we're being asked whether all continuous functions on \\(\\mathbb{R}^2\\) are separable in this sense.\n\nI remember something about Stone-Weierstrass theorem, which says that any continuous function on a compact interval can be uniformly approximated by polynomials. But here, we're dealing with two variables, and we want to know if every continuous function can be written as a finite sum of products of single-variable functions.\n\nWait, but actually, not every continuous function can be written like that. For example, consider the function \\(f(x,",
+    "difficulty": 8.5,
+    "topic": "Mathematics -> Other",
+    "evaluation": {
+      "answer_correctness": 10,
+      "reasoning_logic": 8,
+      "step_completeness": 7,
+      "mathematical_accuracy": 8,
+      "expression_clarity": 9,
+      "overall_score": 8.4,
+      "comments": "The answer correctly determines that there exists a continuous function that cannot be expressed in the specified form. The reasoning process is clear and logical, although it could benefit from a more direct connection to the Stone-Weierstrass theorem. The solution is mostly complete but lacks a formal conclusion. The mathematical accuracy is good, and the expression is clear and easy to follow."
+    },
+    "generation_status": "success"
+  }
+]

@@ -1,0 +1,249 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# 安全操作规范文档
+
+## 🗑️ 删除操作安全规范
+
+### 必须使用 trash-cli 进行删除操作
+
+**✅ 正确的删除方式：**
+```bash
+# 删除单个文件
+trash filename
+
+# 删除目录
+trash -r directory
+
+# 删除多个文件
+trash file1 file2 file3
+
+# 查看回收站内容
+trash-list
+
+# 恢复文件（交互式选择）
+trash-restore
+
+# 清空回收站
+trash-empty
+
+# 清空超过30天的文件
+trash-empty 30
+```
+
+**❌ 禁止使用的危险命令：**
+```bash
+# 绝对不要使用这些命令
+rm filename
+rm -rf directory
+rm -rf *
+```
+
+### 删除操作检查清单
+- [ ] 确认使用 `trash` 而不是 `rm`
+- [ ] 确认文件确实需要删除
+- [ ] 删除后可用 `trash-list` 确认文件在回收站
+- [ ] 如需恢复，使用 `trash-restore`
+
+---
+
+## 📝 代码编写规范
+
+### 必须添加中文注释
+
+**✅ 正确的注释方式：**
+```python
+def download_model_safe():
+    """
+    安全下载模型函数
+    特点:
+    - 不会删除任何现有文件
+    - 支持断点续传
+    - 自动检查文件完整性
+    """
+    model_name = "deepseek-ai/model-name"
+    
+    # 步骤1: 检查现有模型文件
+    logger.info("🔍 步骤1: 检查现有模型文件...")
+    
+    # 使用snapshot_download进行下载，支持断点续传
+    local_dir = snapshot_download(
+        repo_id=model_name,           # 模型仓库ID
+        cache_dir=cache_dir,          # 缓存目录
+        resume_download=True          # 启用断点续传
+    )
+```
+
+**❌ 禁止的代码风格：**
+```python
+# 不要这样写（无注释）
+def download():
+    model_name = "deepseek-ai/model-name"
+    local_dir = snapshot_download(repo_id=model_name)
+```
+
+### 代码注释要求
+- [ ] 每个函数必须有中文文档字符串
+- [ ] 重要步骤必须有中文注释
+- [ ] 参数和返回值要有中文说明
+- [ ] 复杂逻辑要有详细解释
+
+---
+
+## 🌐 网络代理配置
+
+### 当前网络代理设置
+```bash
+# 设置HTTP代理
+export http_proxy=http://[2001:da8:2d00:2072::43a0]:7899
+
+# 设置HTTPS代理
+export https_proxy=http://[2001:da8:2d00:2072::43a0]:7899
+```
+
+### 代理使用注意事项
+- [ ] 下载模型前确认代理已设置
+- [ ] 网络不稳定时检查代理连接
+- [ ] 下载失败时尝试重新设置代理
+- [ ] 定期检查代理是否有效
+
+### 代理测试命令
+```bash
+# 测试代理连接
+curl -x http://[2001:da8:2d00:2072::43a0]:7899 https://huggingface.co
+
+# 检查当前代理设置
+echo $http_proxy
+echo $https_proxy
+```
+
+---
+
+## 🐍 虚拟环境管理
+
+### 当前虚拟环境
+```bash
+# 激活虚拟环境
+conda activate math_eval_env
+
+# 检查当前环境
+conda info --envs
+
+# 查看已安装包
+pip list
+```
+
+### 虚拟环境操作检查清单
+- [ ] 执行Python脚本前确认已激活正确环境
+- [ ] 安装新包时确认在正确的环境中
+- [ ] 运行模型前确认环境包含所需依赖
+- [ ] 环境切换时注意包版本兼容性
+
+### 环境管理命令
+```bash
+# 激活环境
+conda activate math_eval_env
+
+# 安装包
+pip install package_name
+
+# 导出环境
+conda env export > environment.yml
+
+# 从文件创建环境
+conda env create -f environment.yml
+```
+
+---
+
+## 📁 项目文件管理
+
+### 目录结构规范
+```
+MathDifficultyEval/
+├── data/                    # 数据文件
+│   ├── raw/                # 原始数据
+│   └── processed/          # 处理后数据
+├── Download/               # 下载脚本
+├── scripts/                # 执行脚本
+├── results/                # 结果文件
+└── docs/                   # 文档
+```
+
+### 文件命名规范
+- 使用小写字母和下划线
+- 避免使用空格和特殊字符
+- 文件名要有描述性
+- 版本号使用下划线分隔
+
+---
+
+## 🔧 常用安全命令速查
+
+### 文件操作
+```bash
+# 安全删除
+trash filename
+
+# 查看回收站
+trash-list
+
+# 恢复文件
+trash-restore
+
+# 清空回收站
+trash-empty
+```
+
+### 环境管理
+```bash
+# 激活环境
+conda activate math_eval_env
+
+# 设置代理
+export http_proxy=http://[2001:da8:2d00:2072::43a0]:7899
+export https_proxy=http://[2001:da8:2d00:2072::43a0]:7899
+```
+
+### 网络测试
+```bash
+# 测试代理
+curl -x http://[2001:da8:2d00:2072::43a0]:7899 https://huggingface.co
+
+# 检查网络连接
+ping huggingface.co
+```
+
+---
+
+## ⚠️ 重要提醒
+
+1. **删除操作**：永远使用 `trash`，不要使用 `rm`
+2. **代码注释**：所有代码必须有中文注释
+3. **网络代理**：下载前确认代理设置正确
+4. **虚拟环境**：执行操作前确认环境已激活
+5. **文件备份**：重要文件定期备份
+6. **错误处理**：遇到错误先检查以上设置
+
+---
+
+## 📞 紧急恢复
+
+如果误删文件：
+1. 立即停止其他操作
+2. 运行 `trash-list` 查看回收站
+3. 使用 `trash-restore` 恢复文件
+4. 确认文件完整性
+
+如果环境损坏：
+1. 重新激活虚拟环境
+2. 重新安装缺失的包
+3. 检查代理设置
+4. 测试基本功能
+
+---
+
+*最后更新：2025-07-25*
+*维护者：AI助手* 

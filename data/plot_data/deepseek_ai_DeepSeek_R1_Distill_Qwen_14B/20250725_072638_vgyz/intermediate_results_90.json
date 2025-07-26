@@ -1,0 +1,192 @@
+[
+  {
+    "id": "deepmath_8.5_58",
+    "problem": "If $A$ is a right Artinian subring of a local left Artinian ring $R$, does $A/J(A)$ being a division ring imply that $A$ is a local ring? (where $J(A)$ is the Jacobson radical of $A$)",
+    "correct_answer": "Yes",
+    "standard_solution": "Topic: Mathematics -> Algebra -> Abstract Algebra -> Ring Theory, Difficulty: 8.5",
+    "model_response": "Okay, so I need to figure out whether if \\( A \\) is a right Artinian subring of a local left Artinian ring \\( R \\), and if \\( A/J(A) \\) is a division ring, then does it follow that \\( A \\) itself is a local ring?\n\nFirst, let me recall some definitions. \n\n- **Artinian Ring**: A ring in which every descending chain of ideals stabilizes after finite steps. It can be either left or right Artinian depending on whether the chains are in left ideals or right ideals.\n\n- **Local Ring**: A ring with a unique maximal ideal. Equivalently, a ring where the set of non-units forms an ideal.\n\n- **Jacobson Radical \\( J(A) \\)**: The intersection of all modular maximal right ideals of \\( A \\). For a ring to be local, its Jacobson radical coincides with its unique maximal ideal.\n\nGiven that \\( A \\) is a right Artinian subring of a local left Artinian ring \\( R \\). So, \\( R \\) has a unique maximal ideal, say \\( M \\), because it's local. Also, since \\( R \\) is left Artinian, its Krull dimension is zero as a left module over itself, meaning every left ideal is finitely generated.\n\nNow, \\( A \\) is a subring of \\( R \\), but it's only given to be right Artin",
+    "difficulty": 8.5,
+    "topic": "Mathematics -> Algebra -> Abstract Algebra -> Ring Theory",
+    "evaluation": {
+      "answer_correctness": 10,
+      "reasoning_logic": 9,
+      "step_completeness": 8,
+      "mathematical_accuracy": 9,
+      "expression_clarity": 9,
+      "overall_score": 9,
+      "comments": "The answer correctly concludes that if A/J(A) is a division ring, then A is a local ring. The reasoning process is clear and logical, following the definitions and properties of Artinian rings, local rings, and the Jacobson radical. The solution could be improved by providing a bit more detail in the step where it transitions from discussing R to A, ensuring a smoother flow of the argument."
+    },
+    "generation_status": "success"
+  },
+  {
+    "id": "deepmath_5.0_245",
+    "problem": "A particular number written in base 3 requires three digits (${\\_ \\_ \\_}_3$). When the number is written in base 3 and 4, the digits are the reverse of each other. What is this number expressed in base 10?",
+    "correct_answer": "22",
+    "standard_solution": "Topic: Mathematics -> Number Theory -> Other, Difficulty: 5.0",
+    "model_response": "To solve the problem, we'll follow these steps:\n\n1. **Define the Variables:**\n   - Let the three-digit base 3 number be \\( abc_3 \\), where \\( a \\), \\( b \\), and \\( c \\) are its digits.\n   \n2. **Convert to Base 10:**\n   - The value in base 10 is calculated as:\n     \\[\n     N = a \\times 3^2 + b \\times 3^1 + c \\times 3^0 = 9a + 3b + c\n     \\]\n   \n3. **Reverse Digits for Base 4:**\n   - The reversed digits form the number \\( cba_4 \\).\n   - Converting this to base 10 gives:\n     \\[\n     N = c \\times 4^2 + b \\times 4^1 + a \\times 4^0 = 16c + 4b + a\n     \\]\n   \n4. **Set Up the Equation:**\n   - Equate the two expressions for \\( N \\):\n     \\[\n     9a + 3b + c = 16c + 4b + a\n     \\]\n   \n5. **Simplify the Equation:**\n   - Rearranging terms:\n     \\[\n     8a - b - 15c = 0\n     \\]\n   \n6. **Determine",
+    "difficulty": 5.0,
+    "topic": "Mathematics -> Number Theory -> Other",
+    "evaluation": {
+      "answer_correctness": 10,
+      "reasoning_logic": 10,
+      "step_completeness": 10,
+      "mathematical_accuracy": 10,
+      "expression_clarity": 10,
+      "overall_score": 10,
+      "comments": "The answer is correct and the reasoning process is clear and logical. All necessary steps are shown with accurate mathematical calculations. The expressions are presented clearly and are easy to understand, matching the standard solution."
+    },
+    "generation_status": "success"
+  },
+  {
+    "id": "deepmath_5.5_139",
+    "problem": "Consider the parabola \\( C: y^2 = 2x \\). The directrix of this parabola intersects the x-axis at point \\( A \\). A line \\( l \\) passing through point \\( B(-1,0) \\) is tangent to the parabola \\( C \\) at point \\( K \\). Another line parallel to \\( l \\) is drawn through point \\( A \\) and intersects the parabola \\( C \\) at points \\( M \\) and \\( N \\). Calculate the area of triangle \\( \\triangle KMN \\).",
+    "correct_answer": "\\dfrac{1}{2}",
+    "standard_solution": "Topic: Mathematics -> Geometry -> Plane Geometry -> Area, Difficulty: 5.5",
+    "model_response": "Okay, let's tackle this geometry problem step by step. I need to find the area of triangle \\( \\triangle KMN \\) given the conditions involving a parabola, its directrix, and some lines.\n\nFirst, let me understand the given information:\n\n1. **Parabola Equation**: The parabola is given by \\( C: y^2 = 2x \\). This is a standard form of a parabola that opens to the right. For such a parabola, the general equation is \\( y^2 = 4ax \\), where 'a' is the distance from the vertex to the focus (and also from the vertex to the directrix). Comparing with the standard form, here \\( 4a = 2 \\), so \\( a = \\frac{1}{2} \\).\n\n2. **Directrix Intersection with X-Axis**: The directrix of the parabola \\( y^2 = 2x \\) is the line \\( x = -\\frac{1}{2} \\). So, it intersects the x-axis at point \\( A \\). Since the directrix is vertical, intersecting the x-axis means setting \\( y = 0 \\). Therefore, point \\( A \\) is at \\( (-\\frac{1}{2}, 0) \\).\n\n3. **Line Through Point B Tangent to Parabola**: There's a point \\( B(-1, 0) \\",
+    "difficulty": 5.5,
+    "topic": "Mathematics -> Geometry -> Plane Geometry -> Area",
+    "evaluation": {
+      "answer_correctness": 10,
+      "reasoning_logic": 8,
+      "step_completeness": 7,
+      "mathematical_accuracy": 9,
+      "expression_clarity": 8,
+      "overall_score": 8.4,
+      "comments": "The answer correctness is perfect. The reasoning logic is mostly clear and logical, but some steps could be further elaborated. The step completeness is good, but some intermediate steps are missing. The mathematical accuracy is high, with accurate calculations and formulas. The expression clarity is good, but could be improved with more detailed explanations."
+    },
+    "generation_status": "success"
+  },
+  {
+    "id": "deepmath_4.5_4",
+    "problem": "Find the derivative of the function \\( \\phi(t) = \\int_0^1 e^{\\sqrt{x^2 + t^2}} \\, \\mathrm{d}x \\) at \\( t = 0 \\).",
+    "correct_answer": "0",
+    "standard_solution": "Topic: Mathematics -> Calculus -> Differential Calculus -> Derivatives, Difficulty: 4.5",
+    "model_response": "Alright, so I have this problem here where I need to find the derivative of a function φ(t) at t=0. The function is defined as an integral from 0 to 1 of e raised to the square root of (x² + t²) dx. Hmm, okay. So, φ(t) = ∫₀¹ e^{√(x² + t²)} dx.\n\nI remember that to find the derivative of such an integral with respect to t, especially when t is in the integrand, I might need to use Leibniz's rule for differentiation under the integral sign. Let me recall: if I have φ(t) = ∫ₐᵇ f(x, t) dx, then the derivative φ’(t) is equal to ∫ₐᵇ (∂f/∂t) dx plus some boundary terms involving the derivatives of the limits multiplied by f evaluated at those points. But wait, in our case, the limits are constants, from 0 to 1, so the derivative should just be the integral of the partial derivative of f with respect to t over x from 0 to 1.\n\nSo, let's write that down formally. First, identify f(x, t):\n\nf(x, t) = e^{√(x² + t²)}\n\nThen, compute the partial derivative of f with respect to t:\n\n∂f/∂t = d/dt [e^{√(x² + t",
+    "difficulty": 4.5,
+    "topic": "Mathematics -> Calculus -> Differential Calculus -> Derivatives",
+    "evaluation": {
+      "answer_correctness": 10,
+      "reasoning_logic": 8,
+      "step_completeness": 7,
+      "mathematical_accuracy": 8,
+      "expression_clarity": 8,
+      "overall_score": 8.2,
+      "comments": "The final answer is correct. The reasoning process is mostly clear and logical, but there is some confusion in the explanation of Leibniz's rule. The solution lacks a complete application of Leibniz's rule and does not fully compute the derivative. The mathematical calculations and formulas are accurate, and the expression is generally clear and understandable."
+    },
+    "generation_status": "success"
+  },
+  {
+    "id": "deepmath_7.5_84",
+    "problem": "Consider the curve $C: y^2z = x^3 - xz^2$ in the projective plane $\\mathbb{P}^2$ and the point $P = (0:0:1)$. Define the rational map $\\phi: \\mathbb{P}^2 \\dashrightarrow \\mathbb{P}^1$ by $\\phi(x:y:z) = (x:y)$. Determine the value of $\\psi(P)$, where $\\psi = \\phi|_C: C \\to \\mathbb{P}^1$.",
+    "correct_answer": "(0:1)",
+    "standard_solution": "Topic: Mathematics -> Geometry -> Differential Geometry -> Curvature, Difficulty: 7.5",
+    "model_response": "Alright, so I have this problem about algebraic curves and rational maps. Let me try to understand what it's asking for. \n\nWe're given a curve \\( C \\) defined by the equation \\( y^2 z = x^3 - x z^2 \\) in the projective plane \\( \\mathbb{P}^2 \\). There's also a specific point \\( P = (0:0:1) \\) on this curve. Then, there's a rational map \\( \\phi: \\mathbb{P}^2 \\dashrightarrow \\mathbb{P}^1 \\) defined by \\( \\phi(x:y:z) = (x:y) \\). The question is asking for the value of \\( \\psi(P) \\), where \\( \\psi = \\phi|_C: C \\to \\mathbb{P}^1 \\).\n\nFirst, let me recall some concepts. A rational map from one variety to another is defined by specifying how points transform using homogeneous coordinates, provided that we can avoid division by zero. In this case, the map \\( \\phi \\) takes a point \\( (x:y:z) \\) in \\( \\mathbb{P}^2 \\) and sends it to \\( (x:y) \\) in \\( \\mathbb{P}^1 \\). However, since we're dealing with a curve \\( C \\), we need to restrict \\( \\phi \\) to just",
+    "difficulty": 7.5,
+    "topic": "Mathematics -> Geometry -> Differential Geometry -> Curvature",
+    "evaluation": {
+      "answer_correctness": 10,
+      "reasoning_logic": 8,
+      "step_completeness": 7,
+      "mathematical_accuracy": 9,
+      "expression_clarity": 8,
+      "overall_score": 8.4,
+      "comments": "The answer is correct. The reasoning process is clear and logical, but there are some gaps in the completeness of the solution steps. The mathematical accuracy is high, and the expression is generally clear. However, more detailed explanations and complete solution steps would improve the overall score."
+    },
+    "generation_status": "success"
+  },
+  {
+    "id": "deepmath_3.5_9",
+    "problem": "Calculate \\( \\lim_{n \\to \\infty} \\left(\\frac{n}{n^2 + 1} + \\frac{n}{n^2 + 2} + \\cdots + \\frac{n}{n^2 + n}\\right) \\).",
+    "correct_answer": "1",
+    "standard_solution": "Topic: Mathematics -> Calculus -> Integral Calculus -> Techniques of Integration -> Single-variable, Difficulty: 3.5",
+    "model_response": "Okay, so I need to find the limit as \\( n \\) approaches infinity of the sum \\( \\frac{n}{n^2 + 1} + \\frac{n}{n^2 + 2} + \\cdots + \\frac{n}{n^2 + n} \\). Hmm, let me think about how to approach this.\n\nFirst, looking at each term in the sum: each one is of the form \\( \\frac{n}{n^2 + k} \\), where \\( k \\) ranges from 1 to \\( n \\). So, there are \\( n \\) terms in total. Each term looks like it's getting smaller as \\( k \\) increases because the denominator becomes larger. But since we're adding up a lot of these small terms, maybe their sum converges to some finite value?\n\nI remember that when dealing with sums like this, especially with limits involving large \\( n \\), it might be helpful to approximate the sum using an integral or perhaps use some comparison test. Alternatively, maybe I can rewrite each term in a way that makes the sum easier to handle.\n\nLet me try rewriting each term:\n\n\\( \\frac{n}{n^2 + k} = \\frac{1}{n + \\frac{k}{n}} \\)\n\nHmm, that doesn't seem immediately helpful. Wait, if I factor out \\( n^2 \\) from the denominator, each term becomes:\n\n\\( \\frac{n}{n^2 + k} =",
+    "difficulty": 3.5,
+    "topic": "Mathematics -> Calculus -> Integral Calculus -> Techniques of Integration -> Single-variable",
+    "evaluation": {
+      "answer_correctness": 5,
+      "reasoning_logic": 6,
+      "step_completeness": 4,
+      "mathematical_accuracy": 5,
+      "expression_clarity": 5,
+      "overall_score": 5,
+      "comments": "The reasoning process shows some understanding of the problem and attempts to manipulate the terms to find a solution. However, the solution lacks a clear path towards the correct answer and does not fully utilize the standard solution techniques. The mathematical accuracy is decent, but there are gaps in the completeness of the steps shown."
+    },
+    "generation_status": "success"
+  },
+  {
+    "id": "deepmath_9.5_3",
+    "problem": "Consider a consistent and axiomatizable extension of Peano Arithmetic (PA), denoted as $T$. Is it possible to have a sentence $\\phi$ such that $T \\vdash Prov_T(\\phi)$ but $T \\nvdash \\phi$, where $Prov_T(x)$ expresses \"$x$ is provable in $T$\"? Assume $T$ contains sufficient induction to satisfy the following derivability conditions: (1) \"reflection\" which states that if $T \\vdash \\sigma$, then $T \\vdash Prov_T(\\sigma)$, and (2) a formal version of modus ponens such that $T \\vdash Prov_T(a) \\land Prov_T(a \\rightarrow b) \\rightarrow Prov_T(b)$ for any sentences $a$ and $b$. Answer with \"Yes\" or \"No\".",
+    "correct_answer": "Yes",
+    "standard_solution": "Topic: Mathematics -> Discrete Mathematics -> Logic, Difficulty: 9.5",
+    "model_response": "Alright, so I'm trying to figure out whether there exists a sentence φ such that T proves Prov_T(φ) but doesn't actually prove φ itself. Here, T is an extension of Peano Arithmetic that's both consistent and axiomatizable, and it has enough induction to meet certain derivability conditions.\n\nFirst off, let me recall some concepts from metalogic and the incompleteness theorems. I know that in PA, the notion of provability can be represented by a predicate like Prov_T(x). The first thing that comes to mind is Gödel's Second Incompleteness Theorem, which says that if PA is consistent, it cannot prove its own consistency. So, if we had a statement like \"PA is consistent,\" denoted maybe as Con(PA), then PA wouldn't be able to prove Con(PA).\n\nBut wait, in this case, T is an extension of PA, so it might be stronger than PA. However, the question isn't about proving consistency; it's about proving that something is provable without necessarily proving it outright.\n\nLet me think about the derivability conditions given. The first one is reflection: if T proves σ, then T also proves Prov_T(σ). That seems like a key property. It means that whenever T actually proves a statement, it also knows that it can prove that statement. So, if σ is provable in T, then T will recognize that Prov_T(σ) holds.\n\nThe",
+    "difficulty": 9.5,
+    "topic": "Mathematics -> Discrete Mathematics -> Logic",
+    "evaluation": {
+      "answer_correctness": 10,
+      "reasoning_logic": 9,
+      "step_completeness": 8,
+      "mathematical_accuracy": 9,
+      "expression_clarity": 9,
+      "overall_score": 9,
+      "comments": "The answer correctly identifies that it is possible to have a sentence φ such that T ⊢ Prov_T(φ) but T ⊬ φ. The reasoning process is clear and logical, drawing connections to Gödel's Second Incompleteness Theorem and reflecting on the derivability conditions provided. The solution covers the key concepts and provides a good understanding of the problem. However, it lacks a bit in step completeness as the final deduction could be more explicitly stated. The mathematical accuracy and expression clarity are both good, making the solution easy to follow."
+    },
+    "generation_status": "success"
+  },
+  {
+    "id": "deepmath_7.5_56",
+    "problem": "What is the maximum length of a chain of subgroups \\( \\{e\\} \\subset H_1 \\subset \\ldots \\subset H_k = S_n \\) in the symmetric group \\( S_n \\), where each inclusion is proper?",
+    "correct_answer": "\\sum_{p \\leq n} \\sum_{k=1}^{\\infty} \\left\\lfloor \\frac{n}{p^k} \\right\\rfloor",
+    "standard_solution": "Topic: Mathematics -> Algebra -> Abstract Algebra -> Group Theory, Difficulty: 7.5",
+    "model_response": "Okay, so I have this problem about finding the maximum length of a chain of subgroups in the symmetric group \\( S_n \\). The chain starts with the trivial subgroup \\( \\{e\\} \\) and ends at \\( S_n \\) itself, with each subgroup properly containing the previous one. Hmm, interesting.\n\nFirst off, let me recall what a subgroup chain looks like in \\( S_n \\). Each subgroup in the chain must be a proper subgroup of the next one, right? So starting from the smallest possible subgroup (which is just the identity element) and building up to \\( S_n \\).\n\nI remember that in any finite group, the length of the longest subgroup chain is related to the concept called the \"chain length\" or sometimes referred to as the \"subgroup depth.\" But I'm not entirely sure about the exact terminology here.\n\nLet's think about specific examples first, maybe for small values of \\( n \\), to get an idea. Let's take \\( n = 3 \\). Then \\( S_3 \\) has order 6. Its subgroups are: the trivial group, three subgroups of order 2 (generated by transpositions), one subgroup of order 3 (the cyclic subgroup generated by a 3-cycle), and then \\( S_3 \\) itself.\n\nSo, how long can a chain be? Starting from \\( \\{e\\} \\), we can go into one of the order 2 subgroups, but wait",
+    "difficulty": 7.5,
+    "topic": "Mathematics -> Algebra -> Abstract Algebra -> Group Theory",
+    "evaluation": {
+      "answer_correctness": 10,
+      "reasoning_logic": 7,
+      "step_completeness": 6,
+      "mathematical_accuracy": 8,
+      "expression_clarity": 8,
+      "overall_score": 7.8,
+      "comments": "The answer correctness is perfect as the final answer matches the standard solution. The reasoning logic is good but could be more focused and direct. The step completeness is somewhat lacking as the solution could benefit from a more structured approach. The mathematical accuracy is generally good, but there could be improvements in clarity and precision. The expression is clear and easy to follow overall."
+    },
+    "generation_status": "success"
+  },
+  {
+    "id": "deepmath_7.5_105",
+    "problem": "Let $p$ be a prime and $M$ be an $n \\times m$ matrix with integer entries such that for any column vector $\\vec{v} \\neq \\vec{0}$ with entries 0 or 1, $M\\vec{v} \\not\\equiv \\vec{0} \\text{ (mod }p\\text{)}$. Determine if there exists a row vector $\\vec{x}$ with integer entries such that no entry of $\\vec{x}M$ is $0 \\text{ (mod }p\\text{)}$. Provide a justification for your answer.",
+    "correct_answer": "Yes",
+    "standard_solution": "Topic: Mathematics -> Algebra -> Linear Algebra -> Matrices, Difficulty: 7.5",
+    "model_response": "Alright, let me try to work through this problem step by step. So, we have a prime number \\( p \\), and an \\( n \\times m \\) matrix \\( M \\) with integer entries. The condition given is that for any non-zero column vector \\( \\vec{v} \\) with entries either 0 or 1, when we multiply \\( M \\) by \\( \\vec{v} \\), the result is not congruent to the zero vector modulo \\( p \\). \n\nThe question is asking whether there exists a row vector \\( \\vec{x} \\) with integer entries such that when we multiply \\( \\vec{x} \\) by \\( M \\), none of the entries in the resulting vector are congruent to 0 modulo \\( p \\).\n\nFirst, I need to understand what the given condition implies about the matrix \\( M \\). It says that no matter which subset of columns we pick (represented by a 0-1 vector \\( \\vec{v} \\)), their linear combination over the field \\( \\mathbb{Z}/p\\mathbb{Z} \\) does not equal zero unless all coefficients are zero. In other words, every set of columns of \\( M \\) is linearly independent over \\( \\mathbb{Z}/p\\mathbb{Z} \\).\n\nWait, hold on. Actually, it's slightly different because \\( \\vec{v} \\) can only have 0s and 1",
+    "difficulty": 7.5,
+    "topic": "Mathematics -> Algebra -> Linear Algebra -> Matrices",
+    "evaluation": {
+      "answer_correctness": 8,
+      "reasoning_logic": 7,
+      "step_completeness": 6,
+      "mathematical_accuracy": 8,
+      "expression_clarity": 7,
+      "overall_score": 7.2,
+      "comments": "The answer correctly determines that there exists a row vector satisfying the given conditions. The reasoning process is mostly clear and logical, but there are some moments of confusion and lack of clarity in the explanation. The solution lacks completeness in fully connecting the given conditions to the final answer. The mathematical accuracy is generally good, with accurate calculations and understanding of the problem. The expression is clear but could be improved for better understanding."
+    },
+    "generation_status": "success"
+  },
+  {
+    "id": "deepmath_6.5_69",
+    "problem": "Given two permutations \\(\\sigma = ( 1, 2, 3, 4, 5 ) ( 6, 10 ) ( 7, 11 ) ( 8, 12 ) ( 9, 13 )\\) and \\(\\tau = ( 2, 5 ) ( 3, 4 ) ( 6, 7, 8, 9, 10, 11, 12, 13 )\\) with orders 10 and 8 respectively, let \\(H = \\langle \\sigma \\rangle\\) and \\(K = \\langle \\tau \\rangle\\). Given that \\(G\\) is generated by \\(\\sigma\\) and \\(\\tau\\), and that \\(\\langle H\\cap K \\rangle\\) has order 2 (contains elements \\(()\\) and \\(( 6, 10 )( 7, 11 )(8, 12)(9, 13)\\)), determine the size of \\(G\\).",
+    "correct_answer": "40",
+    "standard_solution": "Topic: Mathematics -> Algebra -> Abstract Algebra -> Group Theory, Difficulty: 6.5",
+    "model_response": "Alright, so I've got this problem here involving permutations and group theory. Let me try to break it down step by step.\n\nFirst, we have two permutations σ and τ. The permutation σ is given as (1,2,3,4,5)(6,10)(7,11)(8,12)(9,13). That seems like a product of cycles. Similarly, τ is (2,5)(3,4)(6,7,8,9,10,11,12,13). \n\nThe problem states that σ has order 10 and τ has order 8. So, H is the cyclic subgroup generated by σ, which means every element in H can be written as some power of σ. Similarly, K is the cyclic subgroup generated by τ, so every element in K can be written as some power of τ.\n\nNow, G is generated by both σ and τ, meaning G is the smallest group containing both H and K. We're told that the intersection of H and K, denoted H ∩ K, has order 2. Specifically, it contains only the identity element and another element, which is (6,10)(7,11)(8,12)(9,13). \n\nOur goal is to find the size of G. To do this, I think we'll need to use some fundamental concepts from group theory, possibly Lagrange's theorem or the",
+    "difficulty": 6.5,
+    "topic": "Mathematics -> Algebra -> Abstract Algebra -> Group Theory",
+    "evaluation": {
+      "answer_correctness": 10,
+      "reasoning_logic": 8,
+      "step_completeness": 7,
+      "mathematical_accuracy": 9,
+      "expression_clarity": 8,
+      "overall_score": 8.4,
+      "comments": "The answer is correct. The reasoning process is clear and logical, but some steps could be more detailed. The mathematical calculations and formulas are accurate. The expression is clear and easy to understand."
+    },
+    "generation_status": "success"
+  }
+]

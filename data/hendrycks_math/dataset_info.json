@@ -1,0 +1,50 @@
+{
+  "dataset_name": "Hendrycks MATH",
+  "source": "https://huggingface.co/datasets/EleutherAI/hendrycks_math",
+  "download_time": "2025-07-25T07:42:07.318506",
+  "configs": [
+    "algebra",
+    "counting_and_probability",
+    "geometry",
+    "intermediate_algebra",
+    "number_theory",
+    "prealgebra",
+    "precalculus"
+  ],
+  "train_samples": 7500,
+  "test_samples": 5000,
+  "total_samples": 12500,
+  "columns": [
+    "problem",
+    "level",
+    "type",
+    "solution",
+    "subset"
+  ],
+  "subset_distribution": {
+    "algebra": 1744,
+    "intermediate_algebra": 1295,
+    "prealgebra": 1205,
+    "geometry": 870,
+    "number_theory": 869,
+    "counting_and_probability": 771,
+    "precalculus": 746
+  },
+  "level_distribution": {
+    "Level 5": 2304,
+    "Level 4": 1690,
+    "Level 3": 1592,
+    "Level 2": 1348,
+    "Level 1": 564,
+    "Level ?": 2
+  },
+  "type_distribution": {
+    "Algebra": 1744,
+    "Intermediate Algebra": 1295,
+    "Prealgebra": 1205,
+    "Geometry": 870,
+    "Number Theory": 869,
+    "Counting & Probability": 771,
+    "Precalculus": 746
+  }
+}

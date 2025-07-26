@@ -1,0 +1,15 @@
+{
+  "dataset_name": "MATH-500",
+  "source": "https://huggingface.co/datasets/HuggingFaceH4/MATH-500",
+  "download_time": "2025-07-25T07:42:15.546485",
+  "test_samples": 500,
+  "total_samples": 500,
+  "columns": [
+    "problem",
+    "solution",
+    "answer",
+    "subject",
+    "level",
+    "unique_id"
+  ]
+}
