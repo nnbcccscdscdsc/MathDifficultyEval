@@ -1,17 +1,35 @@
-# 数据文件夹
+# 数学难度评估项目 .gitignore 文件
+# 用于忽略不需要版本控制的文件和目录
+
+# ==================== 数据文件夹 ====================
+# 评估结果数据
 data/results/
 data/intermediate/
 data/plots/
+data/hendrycks_math_results/
+data/math500_results/
+data/DeepMath-103K_result/
 
-# 但保留数据文件夹结构
+# 但保留数据文件夹结构和重要文件
 !data/
 !data/processed/
+!data/hendrycks_math/
+!data/math_500/
+!data/README.md
+!data/deepmath_dataset_info.json
 
-# Python
+# 结果文件夹
+results/
+plot_data/
+
+# ==================== Python 相关 ====================
+# Python 字节码文件
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
+
+# Python 构建文件
 .Python
 build/
 develop-eggs/
@@ -30,13 +48,14 @@ wheels/
 *.egg
 MANIFEST
 
-# Jupyter Notebook
+# Jupyter Notebook 检查点
 .ipynb_checkpoints
 
-# pyenv
+# pyenv 版本文件
 .python-version
 
-# 环境变量
+# ==================== 虚拟环境 ====================
+# 环境变量和虚拟环境
 .env
 .venv
 env/
@@ -45,14 +64,34 @@ ENV/
 env.bak/
 venv.bak/
 
-# IDE
+# Conda 环境
+.conda/
+
+# ==================== IDE 和编辑器 ====================
+# VS Code
 .vscode/
+.cursor/
+
+# PyCharm/IntelliJ
 .idea/
+
+# Vim 临时文件
 *.swp
 *.swo
 *~
 
-# 操作系统
+# Emacs 临时文件
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# ==================== 操作系统文件 ====================
+# macOS
 .DS_Store
 .DS_Store?
 ._*
@@ -61,18 +100,129 @@ venv.bak/
 ehthumbs.db
 Thumbs.db
 
+# Linux
+*~
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ==================== 日志和临时文件 ====================
 # 日志文件
 *.log
+logs/
+*.out
 
 # 临时文件
 *.tmp
 *.temp
+*.bak
+*.backup
 
-# 模型缓存
+# ==================== 机器学习模型和缓存 ====================
+# 模型缓存目录
 .cache/
 transformers_cache/
+huggingface/
+models/
+checkpoints/
+saved_models/
 
+# 模型文件格式
+*.pkl
+*.pickle
+*.h5
+*.hdf5
+*.npy
+*.npz
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.bin
+*.model
+*.weights
+
+# 数据集缓存
+dataset_cache/
+tokenizer_cache/
+
+# ==================== 评估结果文件 ====================
 # 评估结果（可选，如果你想保留一些结果可以注释掉）
 # final_evaluation_*.json
 # intermediate_results_*.json
-# difficulty_score_plot_*.png 
+# difficulty_score_plot_*.png
+# evaluation_results_*.csv
+# *_evaluation_results.csv
+# local_math_evaluation_results.csv
+# test_evaluation_results.csv
+
+# 图表和可视化文件
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.pdf
+plots/
+figures/
+charts/
+
+# ==================== 配置文件 ====================
+# 本地配置文件
+config_local.py
+config_local.json
+config_local.yaml
+config_local.yml
+
+# 敏感配置文件
+secrets.json
+credentials.json
+api_keys.json
+
+# ==================== 测试和调试 ====================
+# 测试覆盖率
+.coverage
+htmlcov/
+.tox/
+.pytest_cache/
+.mypy_cache/
+
+# 调试文件
+*.debug
+debug_*.py
+
+# ==================== 下载和缓存 ====================
+# 下载的模型文件
+downloaded_models/
+model_downloads/
+
+# 浏览器缓存
+.cache/
+.browser_cache/
+
+# ==================== 其他 ====================
+# 压缩文件
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# 数据库文件
+*.db
+*.sqlite
+*.sqlite3
+
+# 备份文件
+*.backup
+*.old
+*.orig
+
+# 系统文件
+.directory
+.fuse_hidden*
+
+# 项目特定文件
+# 如果有其他项目特定的文件需要忽略，请在这里添加 
